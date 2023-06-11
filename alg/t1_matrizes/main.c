@@ -12,7 +12,7 @@
 #define HELP 59
 #define MINI_ANIM_TIME 100
 #define ANIM_TIME 300
-#define MAX 100
+#define MAX 24
 
 void cred(){
     system("cls");
@@ -284,12 +284,18 @@ void cred(){
 
 void help_scr(){
     printf("\n___________AJUDA___________");
+    Sleep(ANIM_TIME);
     printf("\nseta_para_cima  |     Subir");
+    Sleep(ANIM_TIME);
     printf("\nseta_para_baixo |    Descer");
+    Sleep(ANIM_TIME);
     printf("\n<enter>         | Confirmar");
+    Sleep(ANIM_TIME);
     printf("\n<f1>            |     Ajuda");
+    Sleep(ANIM_TIME);
     printf("\n<esc>           |      Sair");
-
+    Sleep(ANIM_TIME);
+    Sleep(ANIM_TIME);
     printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");
 
     getch();
@@ -774,32 +780,72 @@ void start(){
     Sleep(ANIM_TIME);
 }
 
+void printf_mat(int order, int mat[MAX][MAX], int l, int c){
+    Sleep(75);
+
+    printf("     ");
+
+    for(int j = 0; j < order; j++){
+        printf("%3d. ", j+1);
+    }
+
+    printf("\n");
+
+    for (int i = 1; i <= order; i++){
+        Sleep(30);
+        for(int j = 0; j <= order; j++){
+            if(j == 0){
+                printf("%3d. ", i);
+            } else {
+                if(l != -1 && c != -1){
+                    if(i-1 == l && j-1 == c){
+                        printf("  ___");
+                    } else {
+                        if (i-1 < l) {
+                            printf("%4d ", mat[i-1][j-1]); 
+                        } else if (i-1 == l){
+                            if (j-1 < c){
+                                printf("%4d ", mat[i-1][j-1]); 
+                            } else {
+                                printf("     ");
+                            }
+                        } else {
+                            printf("     ");
+                        }
+                    } 
+                } else {
+                    printf("%4d ", mat[i-1][j-1]);
+                }
+            }
+        }
+        printf("\n");
+    }
+    printf("\n\n");
+}
+
 int main() {
     setlocale(LC_ALL,"Portuguese");
 
     start();
 
-    int lines, cols, mat[MAX][MAX];
+    int order = -1, mat[MAX][MAX];
 
     Sleep(1200);
 
-    printf("Insira quantidade de LINHAS: ");
-    scanf("%d", &lines);
+    printf("Insira a ORDEM da matriz: ");
+    scanf("%d", &order);
+    while (order <= 0 || order > 22) {
+        system("cls");
+        printf("Insira a ORDEM da matriz (de 1 a 22): ");
+
+        scanf("%d", &order);
+    }  
 
     system("cls");
-
-
-    Sleep(1200);
-
-    printf("Insira quantidade de COLUNAS: ");
-    scanf("%d", &cols);
-
-    system("cls");
-
 
     Sleep(300);
 
-    for(int i = 0; i < 4; i++){
+    for(int i = 0; i < 2; i++){
         printf("Processando");
         Sleep(350);
         for(int j = 0; j < 3; j++){
@@ -809,40 +855,30 @@ int main() {
         system("cls");
     }
 
-/*     int aux_l = 1, aux_c = 1, aux_t =1;
+    for (int i = 0; i < order; i++){
+        for(int j = 0; j < order; j++){
+            system("cls");
+            printf_mat(order, mat, i, j);
 
-    while(aux_t){
-        printf("%d - %d | %d - %d\n\n", aux_l, aux_c, lines, cols);
+            int aux = 0;
+            printf("Valor em %dx%d: ", i+1, j+1);
+            scanf("%d", &aux);
 
-        for(int i = 0; i <= aux_l; i++){
-            if(i == 0){
-                printf("     ");
-            } else {
-                printf("%3d. ", i);
+            while(((float)aux/1000 >= 1) || ((float)aux/1000 <= -1)){
+                system("cls");
+
+                printf_mat(order, mat, i, j);
+
+                printf("Valor (entre -1000 e 1000) em %dx%d: ", i+1, j+1);
+                scanf("%d", &aux);
             }
-            for(int j = 0; j <= aux_c; j++){
-                if(i == 0){
-                    printf("%3d. ", j);
-                } else if(j != aux_c && i != aux_l) {
-                    printf("%3d ", mat[i-1][j-1]);
-                } else {
-                    scanf("%d", &mat[i-1][j-1]);
-                }
-            }
-            printf("\n");
+
+            mat[i][j] = aux;
         }
+    }
 
-        aux_c++;
-        if(aux_c == cols){
-            if(aux_l == lines){
-                aux_t = 0;
-            }
-            aux_c = 0;
-            aux_l++;            
-        }
-
-        system("cls");
-    } */
+    system("cls");
+    printf_mat(order, mat, -1, -1);
 
     return 0;
 }
