@@ -12,7 +12,7 @@
 #define HELP 59
 #define MINI_ANIM_TIME 100
 #define ANIM_TIME 300
-#define MAX 1000
+#define MAX 100
 
 void cred(){
     system("cls");
@@ -809,39 +809,40 @@ int main() {
         system("cls");
     }
 
-    for(int i = 0; i < lines; i++){
-        for(int j = 0; j < cols; j++){
-            mat[i][j] = NULL;
-        }
-    }
+/*     int aux_l = 1, aux_c = 1, aux_t =1;
 
-    int cont = 0;
+    while(aux_t){
+        printf("%d - %d | %d - %d\n\n", aux_l, aux_c, lines, cols);
 
-   /*  for(int i = 0; i < lines+1; i++){
-        if(i == 0){
-            print("     ");
-        } else {
-            printf("%3d. ", i);
-        }
-
-        for(int j = 0; j < cols+1; j++){
-            if(j == 0){
-            print("     ");
+        for(int i = 0; i <= aux_l; i++){
+            if(i == 0){
+                printf("     ");
             } else {
-                printf("%3d. ", j);
+                printf("%3d. ", i);
             }
-            for(int ni = 0; ni < lines; ni++){
-                for(int nj = 0; nj < cols; nj++){
-                    printf("%3d", mat[ni][nj]);
+            for(int j = 0; j <= aux_c; j++){
+                if(i == 0){
+                    printf("%3d. ", j);
+                } else if(j != aux_c && i != aux_l) {
+                    printf("%3d ", mat[i-1][j-1]);
+                } else {
+                    scanf("%d", &mat[i-1][j-1]);
                 }
             }
+            printf("\n");
         }
+
+        aux_c++;
+        if(aux_c == cols){
+            if(aux_l == lines){
+                aux_t = 0;
+            }
+            aux_c = 0;
+            aux_l++;            
+        }
+
+        system("cls");
     } */
-
-
-
-    
-    
 
     return 0;
 }
