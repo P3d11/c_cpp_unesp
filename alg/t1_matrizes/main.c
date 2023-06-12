@@ -4,6 +4,7 @@
 #include <locale.h>
 #include <time.h>
 #include <windows.h>
+#include <time.h>
 
 #define ESC 27
 #define ENTER 13
@@ -302,10 +303,13 @@ void help_scr(){
 }
 
 int read_input(){
-    int aux = getch();
+    while (1) {
+        int aux = getch();
+        printf("%d ", aux);
 
-    if(aux <= 0){
-        aux = getch();
+        if(aux <= 0 || aux == 224){
+            aux = getch();
+            printf("%d\n", aux);
 
             if(aux == HELP){
                 system("cls");
@@ -324,17 +328,16 @@ int read_input(){
             if(aux == DOWN){
                 return 2;
             }
-    }
+        }
 
-    if(aux == ESC){
-        cred();
-    }
+        if(aux == ESC){
+            cred();
+        }
 
-    if(aux == ENTER){
-        return 2;
+        if(aux == ENTER){
+            return 3;
+        }
     }
-
-    return -1;
 }
 
 void start(){
@@ -780,26 +783,26 @@ void start(){
     Sleep(ANIM_TIME);
 }
 
-void printf_mat(int order, int mat[MAX][MAX], int l, int c){
-    Sleep(75);
+void printf_mat(int lines, int cols, int mat[MAX][MAX], int l, int c){
+    Sleep(100-((lines+cols)*2));
 
     printf("     ");
 
-    for(int j = 0; j < order; j++){
+    for(int j = 0; j < cols; j++){
         printf("%3d. ", j+1);
     }
 
     printf("\n");
 
-    for (int i = 1; i <= order; i++){
-        Sleep(30);
-        for(int j = 0; j <= order; j++){
+    for (int i = 1; i <= lines; i++){
+        Sleep(45-(lines+cols));
+        for(int j = 0; j <= cols; j++){
             if(j == 0){
                 printf("%3d. ", i);
             } else {
                 if(l != -1 && c != -1){
                     if(i-1 == l && j-1 == c){
-                        printf("  ___");
+                        printf(" ___ ");
                     } else {
                         if (i-1 < l) {
                             printf("%4d ", mat[i-1][j-1]); 
@@ -823,42 +826,72 @@ void printf_mat(int order, int mat[MAX][MAX], int l, int c){
     printf("\n\n");
 }
 
-int main() {
-    setlocale(LC_ALL,"Portuguese");
-
-    start();
-
-    int order = -1, mat[MAX][MAX];
-
-    Sleep(1200);
-
-    printf("Insira a ORDEM da matriz: ");
-    scanf("%d", &order);
-    while (order <= 0 || order > 22) {
-        system("cls");
-        printf("Insira a ORDEM da matriz (de 1 a 22): ");
-
-        scanf("%d", &order);
-    }  
-
-    system("cls");
-
+int c_random(){
+    printf("Preencher com ");
     Sleep(300);
+    system("cls");
+    
+    int decision = -1, opt[2] = {1, 0}, aux_opt = 0;
+    while(decision == -1){
+        printf("Preencher com valores aleatorios?\n");
 
-    for(int i = 0; i < 2; i++){
-        printf("Processando");
-        Sleep(350);
-        for(int j = 0; j < 3; j++){
-            printf(".");
-            Sleep(350);
+        if(opt[0]){
+            printf("> Sim\n");
+        } else {
+            printf("  Sim\n");
         }
+
+        if(opt[1]){
+            printf("> Nao\n");
+        } else {
+            printf("  Nao\n");
+        }
+
+        int aux_input = read_input();
+
+        if (aux_input == 1 && aux_opt != 0){
+            opt[aux_opt] = 0;
+            aux_opt--;
+            opt[aux_opt] = 1;
+        } else if (aux_input == 2 && aux_opt != 1){
+            opt[aux_opt] = 0;
+            aux_opt++;
+            opt[aux_opt] = 1;
+        } else if (aux_input == 3) {
+            decision = aux_opt;
+        }
+
         system("cls");
+        Sleep(300);
     }
 
-    for (int i = 0; i < order; i++){
-        for(int j = 0; j < order; j++){
+    return decision;
+}
+
+void write_random_mat(int lines, int cols, int mat[MAX][MAX]){
+    for (int i = 0; i < lines; i++){
+        for(int j = 0; j < cols; j++){
             system("cls");
-            printf_mat(order, mat, i, j);
+            printf_mat(lines, cols, mat, i, j);
+
+            int aux_rand = (rand()%1000 - rand()%1000);
+            printf("Valor em %dx%d: ", i+1, j+1);
+            printf("%d", aux_rand);
+
+            mat[i][j] = aux_rand;
+
+            Sleep(300);
+        }
+    }
+
+    return;
+}
+
+void write_mat(int lines, int cols, int mat[MAX][MAX]){
+    for (int i = 0; i < lines; i++){
+        for(int j = 0; j < cols; j++){
+            system("cls");
+            printf_mat(lines, cols, mat, i, j);
 
             int aux = 0;
             printf("Valor em %dx%d: ", i+1, j+1);
@@ -867,7 +900,7 @@ int main() {
             while(((float)aux/1000 >= 1) || ((float)aux/1000 <= -1)){
                 system("cls");
 
-                printf_mat(order, mat, i, j);
+                printf_mat(lines, cols, mat, i, j);
 
                 printf("Valor (entre -1000 e 1000) em %dx%d: ", i+1, j+1);
                 scanf("%d", &aux);
@@ -877,8 +910,70 @@ int main() {
         }
     }
 
+    return;
+}
+
+int main() {
+    srand(time(NULL));
+    setlocale(LC_ALL,"Portuguese");
+
+    //start();
+
+    int lines = -1, cols = -1, mat[MAX][MAX];
+
+    Sleep(1200);
+
+    printf("Insira a quantidade de LINHAS: ");
+    scanf("%d", &lines);
+    while (lines <= 0 || lines > 22) {
+        system("cls");
+        printf("Insira a quantidade de LINHAS (de 1 a 22): ");
+
+        scanf("%d", &lines);
+    }  
+
     system("cls");
-    printf_mat(order, mat, -1, -1);
+
+    Sleep(1200);
+
+    printf("Insira a quantidade de COLUNAS: ");
+    scanf("%d", &cols);
+    while (cols <= 0 || cols > 22) {
+        system("cls");
+        printf("Insira a quantidade de COLUNAS (de 1 a 22): ");
+
+        scanf("%d", &cols);
+    }  
+
+    system("cls");
+
+    Sleep(300);
+
+    for(int i = 0; i < 2; i++){
+        printf("Processando");
+        Sleep(300);
+        for(int j = 0; j < 3; j++){
+            printf(".");
+            Sleep(300);
+        }
+        system("cls");
+    }
+
+
+    if (c_random() == 0) {
+        write_random_mat(lines, cols, mat);
+    } else {
+        write_mat(lines, cols, mat);
+    }
+
+    for (int i = 0; i < lines; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%d", mat[i][j]);
+        }
+    }   
+
+    system("cls");
+    printf_mat(lines, cols, mat, -1, -1);
 
     return 0;
 }
