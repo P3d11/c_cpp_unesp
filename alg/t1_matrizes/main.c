@@ -11,6 +11,7 @@
 #define UP 72
 #define DOWN 80
 #define HELP 59
+#define C_TIME 10
 #define MINI_ANIM_TIME 100
 #define ANIM_TIME 300
 #define MAX 24
@@ -305,11 +306,9 @@ void help_scr(){
 int read_input(){
     while (1) {
         int aux = getch();
-        printf("%d ", aux);
 
         if(aux <= 0 || aux == 224){
             aux = getch();
-            printf("%d\n", aux);
 
             if(aux == HELP){
                 system("cls");
@@ -340,7 +339,240 @@ int read_input(){
     }
 }
 
+void anim_load(){
+    int variant = rand()%10;
+    int how_many = rand()%3 + 1;
+
+    system("cls");
+
+    if(variant == 0){
+        for(int i = 0; i < how_many; i++){
+            printf("Processando");
+            Sleep(300);
+            for(int j = 0; j < 3; j++){
+                if(j == 1){
+                    printf(".");
+                    Sleep(400);
+                } else {
+                    printf(".");
+                    Sleep(100);
+                }
+            }
+            system("cls");
+        }
+    } else if(variant == 1){
+        printf("Proc");
+
+        Sleep(300);
+
+        system("cls");
+
+        for(int i = 0; i < how_many; i++){
+            printf("Processando");
+            Sleep(300);
+            for(int j = 0; j < 3; j++){
+                printf(".");
+                Sleep(300);
+            }
+            system("cls");
+        }
+    } else if(variant == 2){
+        printf("Proc");
+
+        Sleep(300);
+
+        for(int i = 0; i < how_many; i++){
+            system("cls");
+
+            printf("Processando -");
+            Sleep(100);            
+            system("cls");
+            
+            printf("Processando \\");
+            Sleep(100);            
+            system("cls");
+                        
+            printf("Processando |");
+            Sleep(100);            
+            system("cls");
+
+            printf("Processando /");
+            Sleep(100);            
+            system("cls");
+        }
+    } else if(variant == 3){
+        for(int i = 0; i < how_many; i++){
+            system("cls");
+
+            printf("Processando -");
+            Sleep(100);            
+            system("cls");
+            
+            printf("Processando \\");
+            Sleep(100);            
+            system("cls");
+                        
+            printf("Processando |");
+            Sleep(100);            
+            system("cls");
+
+            printf("Processando /");
+            Sleep(100);            
+            system("cls");
+        }
+    } else if(variant == 4){
+        for(int i = 0; i < how_many+2; i++){
+            system("cls");
+
+            printf("-");
+            Sleep(100);            
+            system("cls");
+            
+            printf("\\");
+            Sleep(100);            
+            system("cls");
+                        
+            printf("|");
+            Sleep(100);            
+            system("cls");
+
+            printf("/");
+            Sleep(100);            
+            system("cls");
+        }
+    } else if(variant == 5){
+        printf("Load");
+
+        Sleep(300);
+
+        system("cls");
+
+        for(int i = 0; i < how_many; i++){
+            printf("Loading");
+            Sleep(300);
+            for(int j = 0; j < 3; j++){
+                printf(".");
+                Sleep(300);
+            }
+            system("cls");
+        }
+    } else if(variant == 6){
+        for(int i = 0; i < how_many; i++){
+            printf("Procesando\n");
+            for(int j = 0; j < 10; j++){
+                printf("#");
+                Sleep(50);
+            }
+            system("cls");
+        }
+    } else if(variant == 7){
+        for(int i = 0; i < how_many; i++){
+            for(int j = 0; j < 10; j++){
+                printf("#");
+                Sleep(100);
+            }
+            system("cls");
+        }
+    } else if(variant == 8){
+        if(how_many <= 2){
+            how_many = 1;
+        } else {
+            how_many = 2;
+        }
+        for(int i = 0; i < how_many; i++){
+            printf("__________");
+            Sleep(250);
+            system("cls");
+
+            printf("#_________");
+            Sleep(250);
+            system("cls");
+
+            printf("##________");
+            Sleep(250);
+            system("cls");
+
+            printf("###_______");
+            Sleep(250);
+            system("cls");
+            
+            printf("####______");
+            Sleep(250);
+            system("cls");
+
+            printf("#####_____");
+            Sleep(250);
+            system("cls");
+
+            printf("######____");
+            Sleep(250);
+            system("cls");
+
+            printf("#######___");
+            Sleep(250);
+            system("cls");
+
+            printf("########__");
+            Sleep(250);
+            system("cls");
+
+            printf("#########_");
+            Sleep(250);
+            system("cls");
+
+            printf("##########");
+            Sleep(1000);
+
+            if (how_many > 1 && i == 0){
+                system("cls");
+                printf("error\n");
+                Sleep(2000);
+                printf("trying to");
+                Sleep(750);
+                system("cls");
+                printf("error\n");
+                printf("trying to reload");
+                for(int j = 0; j<3; j++){
+                    printf(".");
+                    Sleep(300);
+                }
+                Sleep(200);
+                printf(".");
+                Sleep(200);
+                system("cls");
+            }
+        }
+    } else {
+        Sleep(2000);
+        system("cls");
+    }
+
+    system("cls");
+}
+
 void start(){
+
+    printf("Iniciando Ap");
+    Sleep(400);
+    printf("licacao\n");
+    Sleep(1000);
+    
+    anim_load();
+
+    Sleep(1000);
+
+    printf("-\n");
+    printf("|                \n");
+    printf("|                \n");
+    printf("|                \n");
+    printf("|                \n");
+    printf("-\n");
+
+    Sleep(1000);
+    system("cls");
+    Sleep(500);
+
+
     printf("-\n");
     printf("|                \n");
     printf("|                \n");
@@ -783,20 +1015,20 @@ void start(){
     Sleep(ANIM_TIME);
 }
 
-void printf_mat(int lines, int cols, int mat[MAX][MAX], int l, int c){
-    Sleep(100-((lines+cols)*2));
+void printf_mat(int order[2], int mat[MAX][MAX], int l, int c){
+    Sleep(100-((order[0]+order[1])*2));
 
     printf("     ");
 
-    for(int j = 0; j < cols; j++){
+    for(int j = 0; j < order[1]; j++){
         printf("%3d. ", j+1);
     }
 
     printf("\n");
 
-    for (int i = 1; i <= lines; i++){
-        Sleep(45-(lines+cols));
-        for(int j = 0; j <= cols; j++){
+    for (int i = 1; i <= order[0]; i++){
+        Sleep(45-(order[0]+order[1]));
+        for(int j = 0; j <= order[1]; j++){
             if(j == 0){
                 printf("%3d. ", i);
             } else {
@@ -834,12 +1066,15 @@ int c_random(){
     int decision = -1, opt[2] = {1, 0}, aux_opt = 0;
     while(decision == -1){
         printf("Preencher com valores aleatorios?\n");
+        Sleep(150);
 
         if(opt[0]){
             printf("> Sim\n");
         } else {
             printf("  Sim\n");
         }
+
+        Sleep(75);
 
         if(opt[1]){
             printf("> Nao\n");
@@ -862,17 +1097,17 @@ int c_random(){
         }
 
         system("cls");
-        Sleep(300);
+        Sleep(200);
     }
 
     return decision;
 }
 
-void write_random_mat(int lines, int cols, int mat[MAX][MAX]){
-    for (int i = 0; i < lines; i++){
-        for(int j = 0; j < cols; j++){
+void write_random_mat(int order[2], int mat[MAX][MAX]){
+    for (int i = 0; i < order[0]; i++){
+        for(int j = 0; j < order[1]; j++){
             system("cls");
-            printf_mat(lines, cols, mat, i, j);
+            printf_mat(order, mat, i, j);
 
             int aux_rand = (rand()%1000 - rand()%1000);
             printf("Valor em %dx%d: ", i+1, j+1);
@@ -880,18 +1115,20 @@ void write_random_mat(int lines, int cols, int mat[MAX][MAX]){
 
             mat[i][j] = aux_rand;
 
-            Sleep(300);
+            int time = (int) ((order[0]*order[1])*0.69);
+
+            Sleep(350-time);
         }
     }
 
     return;
 }
 
-void write_mat(int lines, int cols, int mat[MAX][MAX]){
-    for (int i = 0; i < lines; i++){
-        for(int j = 0; j < cols; j++){
+void write_mat(int order[2], int mat[MAX][MAX]){
+    for (int i = 0; i < order[0]; i++){
+        for(int j = 0; j < order[1]; j++){
             system("cls");
-            printf_mat(lines, cols, mat, i, j);
+            printf_mat(order, mat, i, j);
 
             int aux = 0;
             printf("Valor em %dx%d: ", i+1, j+1);
@@ -900,7 +1137,7 @@ void write_mat(int lines, int cols, int mat[MAX][MAX]){
             while(((float)aux/1000 >= 1) || ((float)aux/1000 <= -1)){
                 system("cls");
 
-                printf_mat(lines, cols, mat, i, j);
+                printf_mat(order, mat, i, j);
 
                 printf("Valor (entre -1000 e 1000) em %dx%d: ", i+1, j+1);
                 scanf("%d", &aux);
@@ -913,67 +1150,224 @@ void write_mat(int lines, int cols, int mat[MAX][MAX]){
     return;
 }
 
+void change_mat(int order[2], int mat[MAX][MAX]){
+    Sleep(1200);
+
+    printf("Insira a quantidade de LINHAS: ");
+    scanf("%d", &order[0]);
+    while (order[0] <= 0 || order[0] > 22) {
+        system("cls");
+        printf("Insira a quantidade de LINHAS (de 1 a 22): ");
+
+        scanf("%d", &order[0]);
+    }  
+
+    system("cls");
+
+    Sleep(1200);
+
+    printf("Insira a quantidade de ");
+    Sleep(500);
+    printf("COLUNAS: ");
+    scanf("%d", &order[1]);
+    while (order[1] <= 0 || order[1] > 22) {
+        system("cls");
+        printf("Insira a quantidade de COLUNAS (de 1 a 22): ");
+
+        scanf("%d", &order[1]);
+    }  
+
+    anim_load();
+
+    if (c_random() == 0) {
+        write_random_mat(order, mat);
+    } else {
+        write_mat(order, mat);
+    }
+
+    system("cls");
+    printf("Sua");
+    Sleep(100);
+    printf(" MATRIZ:\n\n");
+    printf_mat(order, mat, -1, -1);
+    Sleep(125);
+    printf("(Aperte qualquer tecla para continuar...)\n\n");
+    read_input();
+}
+
+int c_main(){
+    int variant = rand()%3;
+    Sleep(300);
+    system("cls");
+
+    if(variant == 0){
+        printf("ione o que des");
+    } else if(variant == 1){
+        printf("Selecione o q");
+    } else {
+        printf("que deseja fazer:");
+    } 
+
+    Sleep(300);
+    system("cls");
+
+    int decision = -1, opt[9] = {1, 0, 0, 0, 0, 0, 0, 0, 0}, aux_opt = 0;
+    while(decision == -1){
+        printf("Selecione o que deseja fazer:\n");
+        Sleep(150);
+
+        if(opt[0]){
+            printf("> redefinir matriz\n");
+        } else {
+            printf("  redefinir matriz\n");
+        }
+
+        Sleep(C_TIME);
+
+        if(opt[1]){
+            printf("> mostrar matriz\n");
+        } else {
+            printf("  mostrar matriz\n");
+        }
+
+        Sleep(C_TIME*(rand()%8+1));
+
+        if(opt[2]){
+            printf("> trocar linha X pela linha Y\n");
+        } else {
+            printf("  trocar linha X pela linha Y\n");
+        }
+
+        Sleep(C_TIME*(rand()%8+1));
+
+        if(opt[3]){
+            printf("> trocar coluna X pela coluna Y\n");
+        } else {
+            printf("  trocar coluna X pela coluna Y\n");
+        }
+
+        Sleep(C_TIME*(rand()%8+1));
+
+        if(opt[4]){
+            printf("> trocar diag. principal pela diag. secundaria\n");
+        } else {
+            printf("  trocar diag. principal pela diag. secundaria\n");
+        }
+
+        Sleep(C_TIME*(rand()%8+1));
+
+        if(opt[5]){
+            printf("> verificar simetria\n");
+        } else {
+            printf("  verificar simetria\n");
+        }
+
+        Sleep(C_TIME*(rand()%8+1));
+
+        if(opt[6]){
+            printf("> verificar quadrado magico\n");
+        } else {
+            printf("  verificar quadrado magico\n");
+        }
+
+        Sleep(C_TIME*(rand()%8+1));
+
+        if(opt[7]){
+            printf("> verificar quadrado latino\n");
+        } else {
+            printf("  verificar quadrado latino\n");
+        }
+
+        Sleep(C_TIME*(rand()%8+1));
+
+        if(opt[8]){
+            printf("> verificar permutacao\n");
+        } else {
+            printf("  verificar permutacao\n");
+        }
+
+        int aux_input = read_input();
+
+        if (aux_input == 1 && aux_opt != 0){
+            opt[aux_opt] = 0;
+            aux_opt--;
+            opt[aux_opt] = 1;
+        } else if (aux_input == 2 && aux_opt != 8){
+            opt[aux_opt] = 0;
+            aux_opt++;
+            opt[aux_opt] = 1;
+        } else if (aux_input == 3) {
+            decision = aux_opt;
+        }
+
+        system("cls");
+        Sleep(200);
+    }
+
+    return decision;
+}
+
 int main() {
     srand(time(NULL));
     setlocale(LC_ALL,"Portuguese");
 
-    //start();
+    start();
 
-    int lines = -1, cols = -1, mat[MAX][MAX];
+    int order[2], mat[MAX][MAX];
 
-    Sleep(1200);
+    change_mat(order, mat);
 
-    printf("Insira a quantidade de LINHAS: ");
-    scanf("%d", &lines);
-    while (lines <= 0 || lines > 22) {
-        system("cls");
-        printf("Insira a quantidade de LINHAS (de 1 a 22): ");
+    while(1){
+        int decision = c_main(order, mat);
+        switch (decision) {
+            case 0:
+                change_mat(order, mat);
+                break;
+            
+            case 1:
+                printf("Sua");
+                Sleep(100);
+                printf(" MATRIZ:\n\n");
+                printf_mat(order, mat, -1, -1);
+                Sleep(200);
+                printf("(Aperte qualquer tecla para continuar...)\n\n");
+                read_input();
+                break;
 
-        scanf("%d", &lines);
-    }  
+            case 2:
+            
+                break;
 
-    system("cls");
+            case 3:
+            
+                break;
 
-    Sleep(1200);
+            case 4:
+            
+                break;
 
-    printf("Insira a quantidade de COLUNAS: ");
-    scanf("%d", &cols);
-    while (cols <= 0 || cols > 22) {
-        system("cls");
-        printf("Insira a quantidade de COLUNAS (de 1 a 22): ");
+            case 5:
+            
+                break;
 
-        scanf("%d", &cols);
-    }  
+            case 6:
+            
+                break;
 
-    system("cls");
+            case 7:
+            
+                break;
 
-    Sleep(300);
+            case 8:
+            
+                break;
 
-    for(int i = 0; i < 2; i++){
-        printf("Processando");
-        Sleep(300);
-        for(int j = 0; j < 3; j++){
-            printf(".");
-            Sleep(300);
+            default:
+                break;
         }
-        system("cls");
+
     }
 
-
-    if (c_random() == 0) {
-        write_random_mat(lines, cols, mat);
-    } else {
-        write_mat(lines, cols, mat);
-    }
-
-    for (int i = 0; i < lines; i++) {
-        for (int j = 0; j < cols; j++) {
-            printf("%d", mat[i][j]);
-        }
-    }   
-
-    system("cls");
-    printf_mat(lines, cols, mat, -1, -1);
 
     return 0;
 }
