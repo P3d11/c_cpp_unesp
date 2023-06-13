@@ -11,15 +11,19 @@
 #define UP 72
 #define DOWN 80
 #define HELP 59
-#define C_TIME 10
 #define MINI_ANIM_TIME 100
 #define ANIM_TIME 300
 #define MAX 24
 
+void rand_sleep(int min, int max){
+    int aux = (rand()%(max-min))+min;
+    Sleep(aux);
+}
+
 void cred(){
     system("cls");
 
-    Sleep(ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
     printf("|\n");
     printf("|\n");
@@ -27,7 +31,7 @@ void cred(){
     printf("|\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -38,7 +42,7 @@ void cred(){
     printf("|-\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
     system("cls");
 
@@ -48,7 +52,7 @@ void cred(){
     printf("|- P\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -59,7 +63,7 @@ void cred(){
     printf("|- Pe\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -70,7 +74,7 @@ void cred(){
     printf("|- Ped\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -81,7 +85,7 @@ void cred(){
     printf("|- Pedr\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -92,7 +96,7 @@ void cred(){
     printf("|- Pedro\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -103,7 +107,7 @@ void cred(){
     printf("|- Pedro R\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -114,7 +118,7 @@ void cred(){
     printf("|- Pedro Ri\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -125,7 +129,7 @@ void cred(){
     printf("|- Pedro Ric\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -136,7 +140,7 @@ void cred(){
     printf("|- Pedro Rici\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -147,7 +151,7 @@ void cred(){
     printf("|- Pedro Ricie\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -158,7 +162,7 @@ void cred(){
     printf("|- Pedro Ricier\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -169,7 +173,7 @@ void cred(){
     printf("|- Pedro Ricieri\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -180,7 +184,7 @@ void cred(){
     printf("|- Pedro Ricieri M\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -191,7 +195,7 @@ void cred(){
     printf("|- Pedro Ricieri Ma\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -202,7 +206,7 @@ void cred(){
     printf("|- Pedro Ricieri Mar\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -213,7 +217,7 @@ void cred(){
     printf("|- Pedro Ricieri Marc\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -224,7 +228,7 @@ void cred(){
     printf("|- Pedro Ricieri March\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -235,7 +239,7 @@ void cred(){
     printf("|- Pedro Ricieri Marchi\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -246,7 +250,7 @@ void cred(){
     printf("|- Pedro Ricieri Marchi\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -257,7 +261,7 @@ void cred(){
     printf("|- Pedro Ricieri Marchi\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -268,7 +272,7 @@ void cred(){
     printf("|- Pedro Ricieri Marchi\n");
     printf("|\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
 
     system("cls");
@@ -279,25 +283,25 @@ void cred(){
     printf("|- Pedro Ricieri Marchi\n");
     printf("|\n\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
 
     exit(0);
 }
 
 void help_scr(){
     printf("\n___________AJUDA___________");
-    Sleep(ANIM_TIME);
+    rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
     printf("\nseta_para_cima  |     Subir");
-    Sleep(ANIM_TIME);
+    rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
     printf("\nseta_para_baixo |    Descer");
-    Sleep(ANIM_TIME);
+    rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
     printf("\n<enter>         | Confirmar");
-    Sleep(ANIM_TIME);
+    rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
     printf("\n<f1>            |     Ajuda");
-    Sleep(ANIM_TIME);
+    rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
     printf("\n<esc>           |      Sair");
-    Sleep(ANIM_TIME);
-    Sleep(ANIM_TIME);
+    rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
+    rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
     printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");
 
     getch();
@@ -313,7 +317,7 @@ int read_input(){
             if(aux == HELP){
                 system("cls");
 
-                Sleep(ANIM_TIME);
+                rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
 
                 help_scr();
 
@@ -348,14 +352,14 @@ void anim_load(){
     if(variant == 0){
         for(int i = 0; i < how_many; i++){
             printf("Processando");
-            Sleep(300);
+            rand_sleep(200, 400);
             for(int j = 0; j < 3; j++){
                 if(j == 1){
                     printf(".");
-                    Sleep(400);
+                    rand_sleep(300, 500);
                 } else {
                     printf(".");
-                    Sleep(100);
+                    rand_sleep(50, 150);
                 }
             }
             system("cls");
@@ -363,41 +367,41 @@ void anim_load(){
     } else if(variant == 1){
         printf("Proc");
 
-        Sleep(300);
+        rand_sleep(200, 400);
 
         system("cls");
 
         for(int i = 0; i < how_many; i++){
             printf("Processando");
-            Sleep(300);
+            rand_sleep(200, 400);
             for(int j = 0; j < 3; j++){
                 printf(".");
-                Sleep(300);
+                rand_sleep(200, 400);
             }
             system("cls");
         }
     } else if(variant == 2){
         printf("Proc");
 
-        Sleep(300);
+        rand_sleep(200, 400);
 
         for(int i = 0; i < how_many; i++){
             system("cls");
 
             printf("Processando -");
-            Sleep(100);            
+            rand_sleep(50, 150);            
             system("cls");
             
             printf("Processando \\");
-            Sleep(100);            
+            rand_sleep(50, 150);            
             system("cls");
                         
             printf("Processando |");
-            Sleep(100);            
+            rand_sleep(50, 150);            
             system("cls");
 
             printf("Processando /");
-            Sleep(100);            
+            rand_sleep(50, 150);            
             system("cls");
         }
     } else if(variant == 3){
@@ -405,19 +409,19 @@ void anim_load(){
             system("cls");
 
             printf("Processando -");
-            Sleep(100);            
+            rand_sleep(50, 150);            
             system("cls");
             
             printf("Processando \\");
-            Sleep(100);            
+            rand_sleep(50, 150);            
             system("cls");
                         
             printf("Processando |");
-            Sleep(100);            
+            rand_sleep(50, 150);            
             system("cls");
 
             printf("Processando /");
-            Sleep(100);            
+            rand_sleep(50, 150);            
             system("cls");
         }
     } else if(variant == 4){
@@ -425,34 +429,34 @@ void anim_load(){
             system("cls");
 
             printf("-");
-            Sleep(100);            
+            rand_sleep(50, 150);            
             system("cls");
             
             printf("\\");
-            Sleep(100);            
+            rand_sleep(50, 150);            
             system("cls");
                         
             printf("|");
-            Sleep(100);            
+            rand_sleep(50, 150);            
             system("cls");
 
             printf("/");
-            Sleep(100);            
+            rand_sleep(50, 150);            
             system("cls");
         }
     } else if(variant == 5){
         printf("Load");
 
-        Sleep(300);
+        rand_sleep(200, 400);
 
         system("cls");
 
         for(int i = 0; i < how_many; i++){
             printf("Loading");
-            Sleep(300);
+            rand_sleep(200, 400);
             for(int j = 0; j < 3; j++){
                 printf(".");
-                Sleep(300);
+                rand_sleep(200, 400);
             }
             system("cls");
         }
@@ -461,7 +465,7 @@ void anim_load(){
             printf("Procesando\n");
             for(int j = 0; j < 10; j++){
                 printf("#");
-                Sleep(50);
+                rand_sleep(25, 75);
             }
             system("cls");
         }
@@ -469,7 +473,7 @@ void anim_load(){
         for(int i = 0; i < how_many; i++){
             for(int j = 0; j < 10; j++){
                 printf("#");
-                Sleep(100);
+                rand_sleep(50, 150);
             }
             system("cls");
         }
@@ -481,69 +485,69 @@ void anim_load(){
         }
         for(int i = 0; i < how_many; i++){
             printf("__________");
-            Sleep(250);
+            rand_sleep(150, 350);
             system("cls");
 
             printf("#_________");
-            Sleep(250);
+            rand_sleep(150, 350);
             system("cls");
 
             printf("##________");
-            Sleep(250);
+            rand_sleep(150, 350);
             system("cls");
 
             printf("###_______");
-            Sleep(250);
+            rand_sleep(150, 350);
             system("cls");
             
             printf("####______");
-            Sleep(250);
+            rand_sleep(150, 350);
             system("cls");
 
             printf("#####_____");
-            Sleep(250);
+            rand_sleep(150, 350);
             system("cls");
 
             printf("######____");
-            Sleep(250);
+            rand_sleep(150, 350);
             system("cls");
 
             printf("#######___");
-            Sleep(250);
+            rand_sleep(150, 350);
             system("cls");
 
             printf("########__");
-            Sleep(250);
+            rand_sleep(150, 350);
             system("cls");
 
             printf("#########_");
-            Sleep(250);
+            rand_sleep(150, 350);
             system("cls");
 
             printf("##########");
-            Sleep(1000);
+            rand_sleep(750, 1000);
 
             if (how_many > 1 && i == 0){
                 system("cls");
                 printf("error\n");
-                Sleep(2000);
+                rand_sleep(1500, 2500);
                 printf("trying to");
-                Sleep(750);
+                rand_sleep(500, 1000);
                 system("cls");
                 printf("error\n");
                 printf("trying to reload");
                 for(int j = 0; j<3; j++){
                     printf(".");
-                    Sleep(300);
+                    rand_sleep(200, 400);
                 }
-                Sleep(200);
+                rand_sleep(100, 300);
                 printf(".");
-                Sleep(200);
+                rand_sleep(100, 300);
                 system("cls");
             }
         }
     } else {
-        Sleep(2000);
+        rand_sleep(1500, 2500);
         system("cls");
     }
 
@@ -553,13 +557,13 @@ void anim_load(){
 void start(){
 
     printf("Iniciando Ap");
-    Sleep(400);
+    rand_sleep(300, 500);
     printf("licacao\n");
-    Sleep(1000);
+    rand_sleep(750, 1000);
     
     anim_load();
 
-    Sleep(1000);
+    rand_sleep(750, 1000);
 
     printf("-\n");
     printf("|                \n");
@@ -568,9 +572,9 @@ void start(){
     printf("|                \n");
     printf("-\n");
 
-    Sleep(1000);
+    rand_sleep(750, 1000);
     system("cls");
-    Sleep(500);
+    rand_sleep(250, 750);
 
 
     printf("-\n");
@@ -580,7 +584,7 @@ void start(){
     printf("|                \n");
     printf("-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -591,7 +595,7 @@ void start(){
     printf("|                \n");
     printf("-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -602,7 +606,7 @@ void start(){
     printf("|                \n");
     printf("-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -613,7 +617,7 @@ void start(){
     printf("|                \n");
     printf("-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -624,7 +628,7 @@ void start(){
     printf("|                \n");
     printf("-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -635,7 +639,7 @@ void start(){
     printf("|                \n");
     printf("-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -646,7 +650,7 @@ void start(){
     printf("|                \n");
     printf("-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -657,7 +661,7 @@ void start(){
     printf("|                \n");
     printf("-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -668,7 +672,7 @@ void start(){
     printf("|                \n");
     printf("-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -679,7 +683,7 @@ void start(){
     printf("|                  \n");
     printf("-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -690,7 +694,7 @@ void start(){
     printf("|                    \n");
     printf("-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -701,7 +705,7 @@ void start(){
     printf("|                       \n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -712,7 +716,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
@@ -722,7 +726,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -733,7 +737,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -744,7 +748,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -755,7 +759,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -766,7 +770,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -777,7 +781,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -788,7 +792,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -799,7 +803,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -810,7 +814,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -821,7 +825,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -832,7 +836,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -843,7 +847,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -854,7 +858,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -865,7 +869,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -876,7 +880,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -887,7 +891,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -898,7 +902,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -909,7 +913,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -920,7 +924,7 @@ void start(){
     printf("|                       |\n");
     printf("-+-+-+-+-+-+-+-+-+-+-+-+-\n");
 
-    Sleep(MINI_ANIM_TIME);
+    rand_sleep(MINI_ANIM_TIME-50, MINI_ANIM_TIME+50);
     system("cls");
 
 
@@ -944,7 +948,7 @@ void start(){
 
     printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");
 
-    Sleep(ANIM_TIME);
+    rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
 
 
     system("cls");
@@ -956,7 +960,7 @@ void start(){
 
     printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");
 
-    Sleep(ANIM_TIME);
+    rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
     
 
     system("cls");
@@ -967,7 +971,7 @@ void start(){
 
     printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");
 
-    Sleep(ANIM_TIME);
+    rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
 
 
     system("cls");
@@ -977,7 +981,7 @@ void start(){
 
     printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");
 
-    Sleep(ANIM_TIME);
+    rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
 
 
     system("cls");
@@ -986,33 +990,33 @@ void start(){
 
     printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");
 
-    Sleep(ANIM_TIME);
+    rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
 
 
     system("cls");
 
     printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");
 
-    Sleep(ANIM_TIME);
+    rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
 
 
     system("cls");
 
     printf("\n(Aperte qualquer tecla para continuar...)\n\n");
 
-    Sleep(ANIM_TIME);
+    rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
 
 
     system("cls");
 
     printf("(Aperte qualquer tecla para continuar...)\n\n");
 
-    Sleep(ANIM_TIME);
+    rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
 
 
     system("cls");
 
-    Sleep(ANIM_TIME);
+    rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
 }
 
 void printf_mat(int order[2], int mat[MAX][MAX], int l, int c){
@@ -1060,13 +1064,13 @@ void printf_mat(int order[2], int mat[MAX][MAX], int l, int c){
 
 int c_random(){
     printf("Preencher com ");
-    Sleep(300);
+    rand_sleep(200, 400);
     system("cls");
     
     int decision = -1, opt[2] = {1, 0}, aux_opt = 0;
     while(decision == -1){
         printf("Preencher com valores aleatorios?\n");
-        Sleep(150);
+        rand_sleep(100, 200);
 
         if(opt[0]){
             printf("> Sim\n");
@@ -1074,7 +1078,7 @@ int c_random(){
             printf("  Sim\n");
         }
 
-        Sleep(75);
+        rand_sleep(50, 100);
 
         if(opt[1]){
             printf("> Nao\n");
@@ -1084,20 +1088,32 @@ int c_random(){
 
         int aux_input = read_input();
 
-        if (aux_input == 1 && aux_opt != 0){
-            opt[aux_opt] = 0;
-            aux_opt--;
-            opt[aux_opt] = 1;
-        } else if (aux_input == 2 && aux_opt != 1){
-            opt[aux_opt] = 0;
-            aux_opt++;
-            opt[aux_opt] = 1;
+        if (aux_input == 1){
+            if(aux_opt == 0){
+                opt[aux_opt] = 0;
+                aux_opt = 8;
+                opt[aux_opt] = 1;
+            } else {
+                opt[aux_opt] = 0;
+                aux_opt--;
+                opt[aux_opt] = 1;
+            }
+        } else if (aux_input == 2){
+            if(aux_opt == 8){
+                opt[aux_opt] = 0;
+                aux_opt = 0;
+                opt[aux_opt] = 1;
+            } else {
+                opt[aux_opt] = 0;
+                aux_opt++;
+                opt[aux_opt] = 1;
+            }
         } else if (aux_input == 3) {
             decision = aux_opt;
         }
 
         system("cls");
-        Sleep(200);
+        rand_sleep(100, 300);
     }
 
     return decision;
@@ -1151,7 +1167,7 @@ void write_mat(int order[2], int mat[MAX][MAX]){
 }
 
 void change_mat(int order[2], int mat[MAX][MAX]){
-    Sleep(1200);
+    rand_sleep(1000, 1500);
 
     printf("Insira a quantidade de LINHAS: ");
     scanf("%d", &order[0]);
@@ -1164,10 +1180,10 @@ void change_mat(int order[2], int mat[MAX][MAX]){
 
     system("cls");
 
-    Sleep(1200);
+    rand_sleep(1000, 1500);
 
     printf("Insira a quantidade de ");
-    Sleep(500);
+    rand_sleep(250, 750);
     printf("COLUNAS: ");
     scanf("%d", &order[1]);
     while (order[1] <= 0 || order[1] > 22) {
@@ -1187,17 +1203,17 @@ void change_mat(int order[2], int mat[MAX][MAX]){
 
     system("cls");
     printf("Sua");
-    Sleep(100);
+    rand_sleep(50, 150);
     printf(" MATRIZ:\n\n");
     printf_mat(order, mat, -1, -1);
-    Sleep(125);
+    rand_sleep(100, 150);
     printf("(Aperte qualquer tecla para continuar...)\n\n");
     read_input();
 }
 
 int c_main(){
     int variant = rand()%3;
-    Sleep(300);
+    rand_sleep(200, 400);
     system("cls");
 
     if(variant == 0){
@@ -1208,13 +1224,13 @@ int c_main(){
         printf("que deseja fazer:");
     } 
 
-    Sleep(300);
+    rand_sleep(200, 400);
     system("cls");
 
     int decision = -1, opt[9] = {1, 0, 0, 0, 0, 0, 0, 0, 0}, aux_opt = 0;
     while(decision == -1){
         printf("Selecione o que deseja fazer:\n");
-        Sleep(150);
+        rand_sleep(100, 200);
 
         if(opt[0]){
             printf("> redefinir matriz\n");
@@ -1222,7 +1238,7 @@ int c_main(){
             printf("  redefinir matriz\n");
         }
 
-        Sleep(C_TIME);
+        rand_sleep(10,80);
 
         if(opt[1]){
             printf("> mostrar matriz\n");
@@ -1230,7 +1246,7 @@ int c_main(){
             printf("  mostrar matriz\n");
         }
 
-        Sleep(C_TIME*(rand()%8+1));
+        rand_sleep(10,80);
 
         if(opt[2]){
             printf("> trocar linha X pela linha Y\n");
@@ -1238,7 +1254,7 @@ int c_main(){
             printf("  trocar linha X pela linha Y\n");
         }
 
-        Sleep(C_TIME*(rand()%8+1));
+        rand_sleep(10,80);
 
         if(opt[3]){
             printf("> trocar coluna X pela coluna Y\n");
@@ -1246,7 +1262,7 @@ int c_main(){
             printf("  trocar coluna X pela coluna Y\n");
         }
 
-        Sleep(C_TIME*(rand()%8+1));
+        rand_sleep(10,80);
 
         if(opt[4]){
             printf("> trocar diag. principal pela diag. secundaria\n");
@@ -1254,7 +1270,7 @@ int c_main(){
             printf("  trocar diag. principal pela diag. secundaria\n");
         }
 
-        Sleep(C_TIME*(rand()%8+1));
+        rand_sleep(10,80);
 
         if(opt[5]){
             printf("> verificar simetria\n");
@@ -1262,7 +1278,7 @@ int c_main(){
             printf("  verificar simetria\n");
         }
 
-        Sleep(C_TIME*(rand()%8+1));
+        rand_sleep(10,80);
 
         if(opt[6]){
             printf("> verificar quadrado magico\n");
@@ -1270,7 +1286,7 @@ int c_main(){
             printf("  verificar quadrado magico\n");
         }
 
-        Sleep(C_TIME*(rand()%8+1));
+        rand_sleep(10,80);
 
         if(opt[7]){
             printf("> verificar quadrado latino\n");
@@ -1278,7 +1294,7 @@ int c_main(){
             printf("  verificar quadrado latino\n");
         }
 
-        Sleep(C_TIME*(rand()%8+1));
+        rand_sleep(10,80);
 
         if(opt[8]){
             printf("> verificar permutacao\n");
@@ -1288,36 +1304,415 @@ int c_main(){
 
         int aux_input = read_input();
 
-        if (aux_input == 1 && aux_opt != 0){
-            opt[aux_opt] = 0;
-            aux_opt--;
-            opt[aux_opt] = 1;
-        } else if (aux_input == 2 && aux_opt != 8){
-            opt[aux_opt] = 0;
-            aux_opt++;
-            opt[aux_opt] = 1;
+        if (aux_input == 1){
+            if(aux_opt == 0){
+                opt[aux_opt] = 0;
+                aux_opt = 8;
+                opt[aux_opt] = 1;
+            } else {
+                opt[aux_opt] = 0;
+                aux_opt--;
+                opt[aux_opt] = 1;
+            }
+        } else if (aux_input == 2){
+            if(aux_opt == 8){
+                opt[aux_opt] = 0;
+                aux_opt = 0;
+                opt[aux_opt] = 1;
+            } else {
+                opt[aux_opt] = 0;
+                aux_opt++;
+                opt[aux_opt] = 1;
+            }
+
         } else if (aux_input == 3) {
             decision = aux_opt;
         }
 
         system("cls");
-        Sleep(200);
+        rand_sleep(100, 300);
     }
 
     return decision;
+}
+
+void msg_dif_order(int order[2], int aux){
+    printf("Sua MATRIZ ");
+    rand_sleep(200, 400);
+    printf("nao 'e ");
+    if(aux == 0){
+        rand_sleep(50, 100);
+        printf("SIMETRICA\n\n");
+    } else if(aux == 1){
+        rand_sleep(100, 150);
+        printf("QUADRADO MAGICO\n\n");
+    } else if(aux == 2){
+        rand_sleep(150, 200);
+        printf("QUADRADO LATINO\n\n");
+    } else if(aux == 3){
+        rand_sleep(200, 250);
+        printf("de PERMUTACAO\n\n");
+    }
+
+    rand_sleep(100, 300);
+
+    printf("visto que o numero de LINHAS e\n");
+    printf("de COLUNAS nao sao iguais\n\n");
+
+    rand_sleep(300, 600);
+
+    printf("LINHAS: \n");
+    printf("COLUNAS: ");
+
+    rand_sleep(1000, 2000);
+    system("cls");
+
+    printf("Sua MATRIZ ");
+    printf("nao 'e ");
+    if(aux == 0){
+        printf("SIMETRICA\n\n");
+    } else if(aux == 1){
+        printf("QUADRADO MAGICO\n\n");
+    } else if(aux == 2){
+        printf("QUADRADO LATINO\n\n");
+    } else if(aux == 3){
+        printf("de PERMUTACAO\n\n");
+    }
+
+    printf("visto que o numero de LINHAS e\n");
+    printf("de COLUNAS nao sao iguais\n\n");
+
+    printf("LINHAS: %d\n", order[0]);
+    printf("COLUNAS: %d", order[1]);
+
+    printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");   
+    read_input();
+
+    return;  
+}
+
+void v_equal(int order[2], int mat[MAX][MAX]){
+    anim_load();
+    system("cls");
+
+    if(order[0] != order[1]){
+        msg_dif_order(order, 0);
+        return;   
+    }
+
+    int other_mat[MAX][MAX];
+    for(int i = 0; i<order[0]; i++){
+        for(int j = 0; j<order[1]; j++){
+            other_mat[j][i] = mat[i][j];
+        }
+    }
+
+    for(int i = 0; i < 9; i++){
+        if(i%2 == 0){
+            printf("Sua MATRIZ\n\n");
+
+            printf_mat(order, mat, -1, -1);
+        } else {
+            printf("Sua MATRIZ TRANSPOSTA\n\n");
+
+            printf_mat(order, other_mat, -1, -1);
+        }
+
+        Sleep(1025-(i*i*i*2));
+        system("cls");
+    }
+    
+    Sleep(750);
+    printf("Sua MATRIZ TRANSPOSTA\n\n");
+    printf_mat(order, other_mat, -1, -1);
+
+    printf("(Aperte qualquer tecla para continuar...)\n\n");   
+    read_input();
+
+    system("cls");
+    Sleep(750);
+
+    int is_equal = 1;
+
+    for(int i = 0; i<order[0]; i++){
+        for(int j = 0; j<order[1]; j++){
+            if(other_mat[i][j] != mat[i][j]){
+                is_equal = 0;
+                break;
+            }
+        }
+        if (!is_equal){
+            break;
+        }
+    }
+
+    if (is_equal){
+        printf("Sua MATRIZ equivale a sua TRANSPOSTA\n");
+        printf("e, pois, 'e\n");
+        rand_sleep(100, 450);
+        printf("                           SIMETRICA\n");
+    } else {
+        printf("Sua MATRIZ difere de sua TRANSPOSTA\n");
+        printf("e, pois, nao 'e\n");
+        rand_sleep(100, 450);
+        printf("                          SIMETRICA\n");
+    }
+
+    printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");   
+    read_input();
+}
+
+void msg_magic_square(){
+    printf("A soma dos valores de cada COLUNA, LINHA e DIAGONAL da sua\n");
+    printf("MATRIZ sao diferentes entre si\n");
+    printf("e, pois, ela nao 'e um\n");
+    rand_sleep(250, 500);
+    printf("                                           QUADRADO MAGICO\n");
+
+    rand_sleep(500, 1000);
+
+    printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");   
+    read_input();
+    
+    system("cls");
+}
+
+void v_magic_square(int order[2], int mat[MAX][MAX]){
+    anim_load();
+    system("cls");
+
+    if(order[0] != order[1]){
+        msg_dif_order(order, 1);
+        return;   
+    }
+
+    int is_magic_square = 1;
+
+    int sum_line[2] = {0, 0};
+
+    printf("Soma de LINHAS:\n\n");
+    for (int i = 1; i <= order[0]; i++){
+        Sleep(45-(order[0]+order[1]));
+        for(int j = 0; j <= order[1]; j++){
+            if(j == 0){
+                printf("%3d. ", i);
+            } else {
+                sum_line[0]+=mat[i-1][j-1];
+                printf("%4d ", mat[i-1][j-1]); 
+            }
+        }
+        if(sum_line[0] != sum_line[1] && i != 1){
+            is_magic_square = 0;
+        }
+
+        printf("= %d", sum_line[0]);
+
+        sum_line[1] = sum_line[0];
+        sum_line[0] = 0;
+
+        printf("\n");
+    }
+
+    printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");   
+
+    read_input();
+    system("cls");
+
+    if(!is_magic_square){
+        msg_magic_square();
+        return;
+    }
+
+    int sum_col[2] = {0, 0};
+
+    printf("Soma de COLUNAS:\n\n");
+    for (int i = 1; i <= order[0]; i++){
+        Sleep(45-(order[0]+order[1]));
+        for(int j = 0; j <= order[1]; j++){
+            if(j == 0){
+                printf("%3d. ", i);
+            } else {
+                sum_col[0]+=mat[j-1][i-1];
+                printf("%4d ", mat[j-1][i-1]); 
+            }
+        }
+        if(sum_col[0] != sum_col[1] && i != 1){
+            is_magic_square = 0;
+        }
+
+        printf("= %d", sum_col[0]);
+
+        sum_col[1] = sum_col[0];
+        sum_col[0] = 0;
+
+        printf("\n");
+    }
+
+    printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");   
+
+    read_input();
+    system("cls");
+
+    if(!is_magic_square || sum_col[1] != sum_line[1]){
+        msg_magic_square();
+        return;
+    }
+
+    int sum_dia[2] = {0, 0};
+    printf("Soma de DIAGONAIS:\n\n");
+
+    printf("\nd.P. ");
+    for (int i = 0; i < order[0]; i++){
+        Sleep(45-(order[0]+order[1]));
+        for(int j = 0; j < order[1]; j++){
+            if(j == i){
+                sum_dia[0] += mat[i][j];
+                printf("%4d ", mat[i][j]); 
+            }
+        }
+    }
+    printf("= %d\n", sum_dia[0]);
+
+    printf("d.S. ");
+    for(int i = 0; i < order[0]; i++){
+        Sleep(45-(order[0]+order[1]));
+        for(int j = 0; j < order[1]; j++){
+            if(i+j == order[0]-1){
+                sum_dia[1] += mat[j][i];
+                printf("%4d ", mat[j][i]); 
+            }
+        }
+    }
+    printf("= %d\n", sum_dia[1]);
+    
+    printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");   
+
+    read_input();
+    system("cls");
+
+    if (sum_dia[0] != sum_dia[1] || sum_dia[0] != sum_line[1]){
+        msg_magic_square();
+        return;
+    }
+
+    printf("A soma dos valores de cada COLUNA, LINHA e DIAGONAL da sua\n");
+    printf("MATRIZ tem o mesmo valor de: %d\n", sum_dia[0]);
+    printf("e, pois, ela 'e um\n");
+    rand_sleep(1000, 1600);
+
+    system("cls");
+
+    printf("A soma dos valores de cada COLUNA, LINHA e DIAGONAL da sua\n");
+    printf("MATRIZ tem o mesmo valor de: %d\n", sum_dia[0]);
+    printf("e, pois, ela 'e um\n");
+    rand_sleep(100, 450);
+    printf("                                           QUADRADO MAGICO\n");
+
+    rand_sleep(500, 1000);
+
+    printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");   
+    read_input();
+}
+
+void v_perm(int order[2], int mat[MAX][MAX]){
+    anim_load();
+    system("cls");
+
+    if(order[0] != order[1]){
+        msg_dif_order(order, 1);
+        return;   
+    }
+
+    int one_position[MAX];
+    for (int i = 0; i < order[0]; i++){
+        int lzeros = 0, lones = 0, czeros = 0, cones = 0;
+        for(int j = 0; j < order[1]; j++){
+            if(mat[i][j] == 0){
+                lzeros++;
+            } else if(mat[i][j] == 1){
+                lones++;
+            } else {
+                printf("Sua MATRIZ tem valores diferentes de 0 e 1\n");
+                printf("e, pois, ela nao 'e uma\n");
+                rand_sleep(250, 500);
+                printf("                      MATRIZ DE PERMUTACAO\n");
+
+                rand_sleep(500, 1000);
+
+                printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");   
+                read_input();
+                
+                system("cls");
+
+                return;
+            }
+
+            if(mat[j][i] == 0){
+                czeros++;
+            } else if(mat[j][i] == 1){
+                one_position[i] = j;
+                cones++;
+            } else {
+                printf("Sua MATRIZ tem valores diferentes de 0 e 1\n");
+                printf("e, pois, ela nao 'e uma\n");
+                rand_sleep(250, 500);
+                printf("                      MATRIZ DE PERMUTACAO\n");
+
+                rand_sleep(500, 1000);
+
+                printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");   
+                read_input();
+                
+                system("cls");
+
+                return;
+            }
+        }
+
+        if(lones+lzeros != order[0] || cones+czeros != order[0]){
+            printf("Sua MATRIZ nao tem apenas um valor 1 em cada LINHA e COLUNA\n");
+            printf("e, pois, ela nao 'e uma\n");
+            rand_sleep(250, 500);
+            printf("                                       MATRIZ DE PERMUTACAO\n");
+
+            rand_sleep(500, 1000);
+
+            printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");   
+            read_input();
+                
+            system("cls");
+
+            return;
+        }
+    }
+
+    system("cls");
+    
+    printf_mat(order, mat, -1, -1);
+
+    printf("Sua MATRIZ tem apenas um 1 por LINHA e COLUNA\n");
+    printf("e, pois, 'e uma\n");
+    rand_sleep(250, 500);
+    printf("                         MATRIZ DE PERMUTACAO\n");
+
+    rand_sleep(500, 1000);
+
+    printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");   
+    read_input();
 }
 
 int main() {
     srand(time(NULL));
     setlocale(LC_ALL,"Portuguese");
 
-    start();
+    //start();
 
     int order[2], mat[MAX][MAX];
 
     change_mat(order, mat);
 
     while(1){
+        system("cls");
         int decision = c_main(order, mat);
         switch (decision) {
             case 0:
@@ -1326,10 +1721,10 @@ int main() {
             
             case 1:
                 printf("Sua");
-                Sleep(100);
+                rand_sleep(50, 150);
                 printf(" MATRIZ:\n\n");
                 printf_mat(order, mat, -1, -1);
-                Sleep(200);
+                rand_sleep(100, 300);
                 printf("(Aperte qualquer tecla para continuar...)\n\n");
                 read_input();
                 break;
@@ -1347,11 +1742,11 @@ int main() {
                 break;
 
             case 5:
-            
+                v_equal(order, mat);
                 break;
 
             case 6:
-            
+                v_magic_square(order, mat);
                 break;
 
             case 7:
@@ -1359,7 +1754,7 @@ int main() {
                 break;
 
             case 8:
-            
+                v_perm(order, mat);
                 break;
 
             default:
