@@ -1091,7 +1091,7 @@ int c_random(){
         if (aux_input == 1){
             if(aux_opt == 0){
                 opt[aux_opt] = 0;
-                aux_opt = 8;
+                aux_opt = 1;
                 opt[aux_opt] = 1;
             } else {
                 opt[aux_opt] = 0;
@@ -1099,7 +1099,7 @@ int c_random(){
                 opt[aux_opt] = 1;
             }
         } else if (aux_input == 2){
-            if(aux_opt == 8){
+            if(aux_opt == 1){
                 opt[aux_opt] = 0;
                 aux_opt = 0;
                 opt[aux_opt] = 1;
@@ -1614,16 +1614,114 @@ void v_magic_square(int order[2], int mat[MAX][MAX]){
     read_input();
 }
 
+void v_latim(int order[2], int mat[MAX][MAX]){
+    anim_load();
+    system("cls");
+
+    if(order[0] != order[1]){
+        msg_dif_order(order, 2);
+        return;   
+    }
+
+    for (int i = 0; i < order[0]; i++){
+        int cn[MAX], ln[MAX];
+        for(int j = 0; j < order[1]; j++){
+            cn[j] = 0;
+            ln[j] = 0;
+        }
+        for(int j = 0; j < order[1]; j++){
+            if(mat[i][j] <= order[0] && mat[i][j] > 0){
+                cn[mat[i][j]-1]++;
+                if(cn[mat[i][j]-1]>1){
+                    printf("Sua MATRIZ tem duplicata do valor %d na mesma LINHA\n", mat[i][j]);
+                    printf("e, pois, ela nao 'e um\n");
+                    rand_sleep(250, 500);
+                    printf("                                   QUADRADO LATINO\n");
+
+                    rand_sleep(500, 1000);
+
+                    printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");   
+                    read_input();
+                    
+                    system("cls");
+
+                    return;
+                }
+            } else {
+                printf("Sua MATRIZ tem valores diferentes de 1 a %d\n", order[0]);
+                printf("e, pois, ela nao 'e um\n");
+                rand_sleep(250, 500);
+                printf("                           QUADRADO LATINO\n");
+
+                rand_sleep(500, 1000);
+
+                printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");   
+                read_input();
+                
+                system("cls");
+
+                return;
+            }
+
+            if(mat[j][i] <= order[0] && mat[i][j] > 0){
+                ln[mat[j][i]-1]++;
+                if(ln[mat[j][i]-1]>1){
+                    printf("Sua MATRIZ tem duplicata do valor %d na mesma COLUNA\n", mat[i][j]);
+                    printf("e, pois, ela nao 'e um\n");
+                    rand_sleep(250, 500);
+                    printf("                                    QUADRADO LATINO\n");
+
+                    rand_sleep(500, 1000);
+
+                    printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");   
+                    read_input();
+                    
+                    system("cls");
+
+                    return;
+                }
+            } else {
+                printf("Sua MATRIZ tem valores diferentes de 1 a %d\n", order[0]);
+                printf("e, pois, ela nao 'e um\n");
+                rand_sleep(250, 500);
+                printf("                           QUADRADO LATINO\n");
+
+                rand_sleep(500, 1000);
+
+                printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");   
+                read_input();
+                
+                system("cls");
+
+                return;
+            }
+        }
+    }
+
+    system("cls");
+    
+    printf_mat(order, mat, -1, -1);
+
+    printf("Sua MATRIZ tem em cada LINHA e COLUNA todos os numeros de 1 a %d\n", order[0]);
+    printf("e, pois, 'e um\n");
+    rand_sleep(250, 500);
+    printf("                                                 QUADRADO LATINO\n");
+
+    rand_sleep(500, 1000);
+
+    printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");   
+    read_input();
+}
+
 void v_perm(int order[2], int mat[MAX][MAX]){
     anim_load();
     system("cls");
 
     if(order[0] != order[1]){
-        msg_dif_order(order, 1);
+        msg_dif_order(order, 3);
         return;   
     }
 
-    int one_position[MAX];
     for (int i = 0; i < order[0]; i++){
         int lzeros = 0, lones = 0, czeros = 0, cones = 0;
         for(int j = 0; j < order[1]; j++){
@@ -1650,7 +1748,6 @@ void v_perm(int order[2], int mat[MAX][MAX]){
             if(mat[j][i] == 0){
                 czeros++;
             } else if(mat[j][i] == 1){
-                one_position[i] = j;
                 cones++;
             } else {
                 printf("Sua MATRIZ tem valores diferentes de 0 e 1\n");
@@ -1750,7 +1847,7 @@ int main() {
                 break;
 
             case 7:
-            
+                v_latim(order, mat);
                 break;
 
             case 8:
