@@ -1798,11 +1798,100 @@ void v_perm(int order[2], int mat[MAX][MAX]){
     read_input();
 }
 
+void change_dia(int order[2], int mat[MAX][MAX]){
+    anim_load();
+    system("cls");
+
+    if(order[0] != order[1]){
+        printf("Sua MATRIZ ");
+        rand_sleep(200, 400);
+        printf("nao possui DIAGONAIS ");
+
+        rand_sleep(100, 300);
+
+        printf("visto que o numero de LINHAS e\n");
+        printf("de COLUNAS nao sao iguais\n\n");
+
+        rand_sleep(300, 600);
+
+        printf("LINHAS: \n");
+        printf("COLUNAS: ");
+
+        rand_sleep(1000, 2000);
+        system("cls");
+
+        printf("Sua MATRIZ ");
+        printf("nao possui DIAGONAIS ");
+
+        printf("visto que o numero de LINHAS e\n");
+        printf("de COLUNAS nao sao iguais\n\n");
+
+        printf("LINHAS: %d\n", order[0]);
+        printf("COLUNAS: %d", order[1]);
+
+        printf("\n\n(Aperte qualquer tecla para continuar...)\n\n");   
+        read_input();
+
+        return;   
+    }
+
+    int aux[MAX][2];
+    for(int i = 0; i < order[0]; i++){
+        for(int j = 0; j < order[1]; j++){
+            if(i == j){
+                aux[i][0] = mat[i][j];
+            }
+            if(i+j == order[0]-1){
+                aux[i][1] = mat[i][j];
+            }
+        }
+    }
+
+    int old_mat[MAX][MAX];
+    for(int i = 0; i < order[0]; i++){
+        for(int j = 0; j < order[1]; j++){
+            old_mat[i][j] = mat[i][j];
+        }
+    }
+
+    for(int i = 0; i < order[0]; i++){
+        for(int j = 0; j < order[1]; j++){
+            if(i == j){
+                mat[i][j] = aux[i][1];
+            }
+            if(i+j == order[0]-1){
+                mat[i][j] = aux[i][0];
+            }
+        }
+    }
+
+    for(int i = 0; i < 9; i++){
+        if(i%2 == 0){
+            printf("Sua MATRIZ\n\n");
+            printf_mat(order, old_mat, -1, -1);
+        } else {
+            printf("Sua MATRIZ com as DIAGONAIS trocadas\n\n");
+            printf_mat(order, mat, -1, -1);
+        }
+
+        Sleep(1025-(i*i*i*2));
+        system("cls");
+    }
+
+    printf("Sua MATRIZ agora esta as DIAGONAIS trocadas\n\n");
+    printf_mat(order, mat, -1, -1);
+    
+    printf("(Aperte qualquer tecla para continuar...)\n\n");   
+    read_input();
+}
+
+
+
 int main() {
     srand(time(NULL));
     setlocale(LC_ALL,"Portuguese");
 
-    start();
+    //start();
 
     int order[2], mat[MAX][MAX];
 
@@ -1835,7 +1924,7 @@ int main() {
                 break;
 
             case 4:
-            
+                change_dia(order, mat);
                 break;
 
             case 5:
