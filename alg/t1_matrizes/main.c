@@ -1614,7 +1614,7 @@ void v_magic_square(int order[2], int mat[MAX][MAX]){
     read_input();
 }
 
-void v_latim(int order[2], int mat[MAX][MAX]){
+void v_latin(int order[2], int mat[MAX][MAX]){
     anim_load();
     system("cls");
 
@@ -1802,7 +1802,7 @@ int main() {
     srand(time(NULL));
     setlocale(LC_ALL,"Portuguese");
 
-    //start();
+    start();
 
     int order[2], mat[MAX][MAX];
 
@@ -1847,7 +1847,7 @@ int main() {
                 break;
 
             case 7:
-                v_latim(order, mat);
+                v_latin(order, mat);
                 break;
 
             case 8:
