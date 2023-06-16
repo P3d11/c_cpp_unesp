@@ -1,10 +1,15 @@
+/*
+    Feito por:
+      - Bruno Ramalho Nascimento
+      - Pedro Ricieri Marchi
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 #include <locale.h>
 #include <time.h>
 #include <windows.h>
-#include <time.h>
 
 #define ESC 27
 #define ENTER 13
@@ -14,6 +19,7 @@
 #define MINI_ANIM_TIME 100
 #define ANIM_TIME 300
 #define MAX 24
+
 
 void rand_sleep(int min, int max){
     int aux = (rand()%(max-min))+min;
@@ -308,39 +314,40 @@ void help_scr(){
 }
 
 int read_input(){
-    while (1) {
-        int aux = getch();
 
-        if(aux <= 0 || aux == 224){
-            aux = getch();
+    int aux = getch();
 
-            if(aux == HELP){
-                system("cls");
+    if(aux <= 0 || aux == 224){
+        aux = getch();
 
-                rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
+        if(aux == HELP){
+            system("cls");
 
-                help_scr();
+            rand_sleep(ANIM_TIME-100, ANIM_TIME+100);
 
-                return 4;
-            }
+            help_scr();
 
-            if(aux == UP){
-                return 1;
-            }
-
-            if(aux == DOWN){
-                return 2;
-            }
+            return 4;
         }
 
-        if(aux == ESC){
-            cred();
+        if(aux == UP){
+            return 1;
         }
 
-        if(aux == ENTER){
-            return 3;
+        if(aux == DOWN){
+            return 2;
         }
     }
+
+    if(aux == ESC){
+        cred();
+    }
+
+    if(aux == ENTER){
+        return 3;
+    }
+
+    return -1;
 }
 
 void anim_load(){
@@ -1086,7 +1093,10 @@ int c_random(){
             printf("  Nao\n");
         }
 
-        int aux_input = read_input();
+        int aux_input = 0;
+        while(aux_input<1 || aux_input>3){
+            aux_input = read_input();
+        }
 
         if (aux_input == 1){
             if(aux_opt == 0){
@@ -1302,7 +1312,10 @@ int c_main(){
             printf("  verificar permutacao\n");
         }
 
-        int aux_input = read_input();
+        int aux_input = 0;
+        while(aux_input<1 || aux_input>3){
+            aux_input = read_input();
+        }
 
         if (aux_input == 1){
             if(aux_opt == 0){
@@ -1407,7 +1420,7 @@ void v_equal(int order[2], int mat[MAX][MAX]){
         }
     }
 
-    for(int i = 0; i < 9; i++){
+    for(int i = 0; i < 5; i++){
         if(i%2 == 0){
             printf("Sua MATRIZ\n\n");
 
@@ -1418,7 +1431,7 @@ void v_equal(int order[2], int mat[MAX][MAX]){
             printf_mat(order, other_mat, -1, -1);
         }
 
-        Sleep(1025-(i*i*i*2));
+        Sleep(1251-(i*i*i*i*2));
         system("cls");
     }
     
@@ -1723,13 +1736,11 @@ void v_perm(int order[2], int mat[MAX][MAX]){
     }
 
     for (int i = 0; i < order[0]; i++){
-        int lzeros = 0, lones = 0, czeros = 0, cones = 0;
+        int lones = 0, cones = 0;
         for(int j = 0; j < order[1]; j++){
-            if(mat[i][j] == 0){
-                lzeros++;
-            } else if(mat[i][j] == 1){
+            if(mat[i][j] == 1){
                 lones++;
-            } else {
+            } else if(mat[i][j] != 0){
                 printf("Sua MATRIZ tem valores diferentes de 0 e 1\n");
                 printf("e, pois, ela nao 'e uma\n");
                 rand_sleep(250, 500);
@@ -1745,11 +1756,9 @@ void v_perm(int order[2], int mat[MAX][MAX]){
                 return;
             }
 
-            if(mat[j][i] == 0){
-                czeros++;
-            } else if(mat[j][i] == 1){
+            if(mat[j][i] == 1){
                 cones++;
-            } else {
+            } else if (mat[j][i] != 0){
                 printf("Sua MATRIZ tem valores diferentes de 0 e 1\n");
                 printf("e, pois, ela nao 'e uma\n");
                 rand_sleep(250, 500);
@@ -1766,7 +1775,7 @@ void v_perm(int order[2], int mat[MAX][MAX]){
             }
         }
 
-        if(lones+lzeros != order[0] || cones+czeros != order[0]){
+        if(lones != 1 || cones != 1){
             printf("Sua MATRIZ nao tem apenas um valor 1 em cada LINHA e COLUNA\n");
             printf("e, pois, ela nao 'e uma\n");
             rand_sleep(250, 500);
@@ -1865,7 +1874,7 @@ void change_dia(int order[2], int mat[MAX][MAX]){
         }
     }
 
-    for(int i = 0; i < 9; i++){
+    for(int i = 0; i < 5; i++){
         if(i%2 == 0){
             printf("Sua MATRIZ\n\n");
             printf_mat(order, old_mat, -1, -1);
@@ -1874,24 +1883,131 @@ void change_dia(int order[2], int mat[MAX][MAX]){
             printf_mat(order, mat, -1, -1);
         }
 
-        Sleep(1025-(i*i*i*2));
+        Sleep(1251-(i*i*i*i*2));
         system("cls");
     }
 
-    printf("Sua MATRIZ agora esta as DIAGONAIS trocadas\n\n");
+    printf("Sua MATRIZ agora esta com as DIAGONAIS trocadas\n\n");
     printf_mat(order, mat, -1, -1);
     
     printf("(Aperte qualquer tecla para continuar...)\n\n");   
     read_input();
 }
 
+void change_l_c(int order[2], int mat[MAX][MAX], int lc){
+    rand_sleep(1000, 1500);
 
+    int x = 0, y = 0;
+
+    if(!lc){
+        printf("LINHA\n");
+    } else {
+        printf("COLUNA\n");
+    }
+
+    rand_sleep(200, 400);
+
+    printf("X: ");
+    scanf("%d", &x);
+    while (x <= 0 || x > order[lc]) {
+        system("cls");
+        printf("X ");
+        rand_sleep(100, 300);
+        printf("(de 1 a %d): ", order[lc]);
+
+        scanf("%d", &x);
+    }  
+
+    printf("Y: ");
+    scanf("%d", &y);
+    while (y <= 0 || y > order[lc]) {
+        system("cls");
+        printf("Y ");
+        rand_sleep(100, 300);
+        printf("(de 1 a %d): ", order[lc]);
+
+        scanf("%d", &y);
+    }  
+
+    system("cls");
+
+    rand_sleep(1000, 1500);
+
+    anim_load();
+
+    x--;
+    y--;
+
+    if(x > y){
+        int z = x;
+        x = y;
+        y = z;
+    }
+    
+    int old_mat[MAX][MAX];
+    for(int i = 0; i < order[0]; i++){
+        for(int j = 0; j < order[1]; j++){
+            old_mat[i][j] = mat[i][j];
+        }
+    }
+
+    int aux;
+    if(!lc){
+        for(int i = 0; i < order[lc]; i++){
+            aux = mat[x][i];
+            mat[x][i] = mat[y][i];
+            mat[y][i] = aux;
+        }
+    } else {
+        for(int i = 0; i < order[lc]; i++){
+            aux = mat[i][x];
+            mat[i][x] = mat[i][y];
+            mat[i][y] = aux;
+        }
+    }
+    
+    for(int i = 0; i < 5; i++){
+        if(i%2 == 0){
+            printf("Sua MATRIZ\n\n");
+            printf_mat(order, old_mat, -1, -1);
+        } else {
+            printf("Sua MATRIZ com as ");
+            if(!lc){
+                printf("LINHAS");
+            } else {
+                printf("COLUNAS");
+            }
+            printf(" trocadas\n\n");
+            printf_mat(order, mat, -1, -1);
+        }
+
+        Sleep(1251-(i*i*i*i*2));
+        system("cls");
+    }
+
+    Sleep(750);
+    printf("Sua MATRIZ com as ");
+    rand_sleep(100, 200);
+    if(!lc){
+        printf("LINHAS");
+    } else {
+        printf("COLUNAS");
+    }
+    printf(" trocadas\n\n");
+    rand_sleep(100, 200);
+    printf_mat(order, mat, -1, -1);
+
+    printf("(Aperte qualquer tecla para continuar...)\n\n");   
+    read_input();
+
+    system("cls");
+}
 
 int main() {
     srand(time(NULL));
     setlocale(LC_ALL,"Portuguese");
 
-    //start();
+    start();
 
     int order[2], mat[MAX][MAX];
 
@@ -1916,11 +2032,11 @@ int main() {
                 break;
 
             case 2:
-            
+                change_l_c(order, mat, 0);
                 break;
 
             case 3:
-            
+                change_l_c(order, mat, 1);
                 break;
 
             case 4:
@@ -1948,7 +2064,6 @@ int main() {
         }
 
     }
-
 
     return 0;
 }
