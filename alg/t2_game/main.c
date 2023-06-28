@@ -7,81 +7,183 @@
 #include <windows.h>
 
 #define MAX 4444
+#define ENTER 13
+#define UP 72
+#define DOWN 80
 
 void rand_sleep(int min, int max) {
     int aux = (rand()%(max-min))+min;
     Sleep(aux);
 }
 
-void printf_text(char text[4444]) { 
+void printf_text(char text[4444], int anim) { 
     int aux = strlen(text) - 1;
 	float time = 25;
-	int len_word = 0;
-	int c_at = 0;
 
-	for(int j = 0; j < aux; j++){
-		len_word++;
-		if(text[j] == ' ') {
-			break;
-		}
-	}
-    
-	for(int i = 0; i < aux; i++){	
-        printf("%c", text[i]);
-		c_at++;
-		
-		if(text[i] == ' ') {
-			len_word = 0;
-			c_at = 0;
-			for(int j = i+1; j < aux; j++){
-				len_word++;
-				if(text[j] == ' ') {
-					break;
-				}
-			}
-			time = 25;
-		}
-		
-        if (text[i] == '\n'){
-			//PlaySound("sound/space.wav", NULL, SND_FILENAME | SND_ASYNC);
-			rand_sleep(2000, 3000);
-		} else if(i > aux*0.9){
-            if(text[i] == ' '){
-                //PlaySound("sound/space.wav", NULL, SND_FILENAME | SND_ASYNC);
-                rand_sleep(250, 500);
-            } else {
-                if(c_at <= len_word/2){
-                    time *= (6./len_word + 1);
-                } else {
-                    time /= (6./len_word + 1);
-                }
-                char name_sound[104] = "sound/ktX.wav";
-                name_sound[8] = rand()%7 + '0';
+    if(anim) {
+        int len_word = 0;
+        int c_at = 0;
 
-                //PlaySound(name_sound, NULL, SND_FILENAME | SND_ASYNC);
-                rand_sleep((int) (time*0.75), (int) (time*0.75*1.25));
+        for(int j = 0; j < aux; j++){
+            len_word++;
+            if(text[j] == ' ') {
+                break;
             }
-        }		
+        }
+        
+        for(int i = 0; i < aux; i++){	
+            printf("%c", text[i]);
+            c_at++;
+            
+            if(text[i] == ' ') {
+                len_word = 0;
+                c_at = 0;
+                for(int j = i+1; j < aux; j++){
+                    len_word++;
+                    if(text[j] == ' ') {
+                        break;
+                    }
+                }
+                time = 25;
+            }
+            
+            if (text[i] == '\n'){
+                PlaySound("sound/space.wav", NULL, SND_FILENAME | SND_ASYNC);
+                printf("    ");
+                rand_sleep(1000, 1500);
+            } else if(i > aux*0.9){
+                if(text[i] == ' '){
+                    PlaySound("sound/space.wav", NULL, SND_FILENAME | SND_ASYNC);
+                    rand_sleep(250, 500);
+                } else {
+                    if(c_at <= len_word/2){
+                        time *= (6./len_word + 1);
+                    } else {
+                        time /= (6./len_word + 1);
+                    }
+                    char name_sound[104] = "sound/ktX.wav";
+                    name_sound[8] = rand()%7 + '0';
+
+                    PlaySound(name_sound, NULL, SND_FILENAME | SND_ASYNC);
+                    rand_sleep((int) (time*0.75), (int) (time*0.75*1.25));
+                }
+            }		
+        }
+    } else {
+        for(int i = 0; i < aux; i++){	
+            printf("%c", text[i]);
+            
+            if (text[i] == '\n'){
+                printf("    ");
+                rand_sleep(50, 100);
+            }
+        }
     }
 
     printf("\n");
 }
 
-int choice_point(char text[MAX], int how_many, char choices[10][MAX]) {
-    int opt[MAX];
-    for(int i = 0; i < how_many; i++){
-        opt[i] = 0;
+int read_input(){
+
+    int aux = getch();
+
+    if(aux <= 0 || aux == 224){
+        aux = getch();
+
+        if(aux == UP){
+            return 1;
+        }
+
+        if(aux == DOWN){
+            return 2;
+        }
     }
-    opt[0] = 1;
 
-    int decision = -1, aux_opt = 0;
+    if(aux == ENTER){
+        return 3;
+    }
 
-    while(decision != -1){
+    return -1;
+}
+
+int choice_point(char text[MAX], int how_many, char opt[10][MAX]) {
+    int position = 0;
+    
+    int aux_input_start = 0;
+    while(aux_input_start < 1 || aux_input_start > 3){
+        aux_input_start = read_input();
+    }
+
+    if(aux_input_start == 3) {
+        return position;
+    }
+
+    if(aux_input_start == 2) {
+        position++;
+    }
+
+    while(1) {
         system("cls");
+
+        rand_sleep(100, 200);
+
+        printf_text(text, 0);
+        for(int i = 0; i < how_many; i++){
+            if(position == i){
+                printf("      > ");
+            } else {
+                printf("        ");
+            }
+            printf_text(opt[i], 0);
+        }
+
+        int aux_input = 0;
+        while(aux_input < 1 || aux_input > 3){
+            aux_input = read_input();
+        }
+
+        if(aux_input == 3){
+            return position;
+        }
+
+        if(aux_input == 1 && position != 0){
+            position--;
+        } else if(aux_input == 2 && position != how_many-1) {
+            position++;
+        }
     }
 }
 
-int text_zero(int choices[5]){
+void tzero(int choices[5]) {
+    char date[MAX] = "11/09/92\n";
+    char text[MAX] = "\nOkay... Oi. Meu nome eh Raphael Santos. Eu tenho 25 anos e trabalho como detetive na cidade de Piratininga ha mais ou menos 4 meses. Nas ultimas semanas, eu e meu mentor, detetive Carlos Almeida, temos investigado casos de desaparecimentos suspeitos na cidade... e acho que ele acabou de se tornar uma das vitimas.\nOntem recebi uma mensagem de voz dele. Nunca o vira daquela maneira: confuso, ansioso, com medo. Ele disse coisas que nao sei se compreendo completamente, mas preciso tentar. Comecei essa serie de entradas para deixar minhas descobertas registradas e ver se consigo decifrar o que esta por tras de tudo isso.\n\nNo momento, acho que tenho duas escolhas: \0";
+
+    char opt[2][MAX] = {"Investigar por conta propria ",
+                        "Ir a policia e mostrar a mensagem de voz "};
+
+    printf_text(date, 1);
+    printf_text(text, 1);
+
+    printf("      > ");
+    printf_text(opt[0], 1);
+
+    printf("        ");
+    printf_text(opt[1], 1);
+
+    strcat(date, text);
+
+    int ansr = choice_point(date, 2, opt);
+    
+    system("cls");
+
+    if(ansr == 0) {
+        printf("vc escolheu a pimeira opcao");
+    } else {
+        printf("vc escoeu a seguda opt");
+    }
+}
+
+void init_computer(int choices[5]) {
     system("cls");
 
     PlaySound("sound/start_pc.wav", NULL, SND_FILENAME | SND_ASYNC);
@@ -142,7 +244,7 @@ int text_zero(int choices[5]){
 
     system("cls");
 
-    Sleep(300);
+    Sleep(1000);
 
     printf("Initialization finished");
     for(int i = 0; i < 7; i++){
@@ -173,14 +275,19 @@ int text_zero(int choices[5]){
         Sleep(100);
     }
 
+    Sleep(500);
+
     system("cls");
     
+    Sleep(1000);
+
+    tzero(choices);
 }
 
 
 void start(int choices[5]) {
 
-    text_zero(choices);
+    init_computer(choices);
 }
 
 int main() {
