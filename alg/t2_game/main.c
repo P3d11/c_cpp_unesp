@@ -1,3 +1,9 @@
+/*  
+    > Camila Cristina Silva
+    > Pedro Ricieri Marchi 
+    <3 
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -181,8 +187,6 @@ int choice_point(char text[MAX], int how_many, char opt[10][MAX]) {
 void end(int num) {
     italic(1);
 
-    press_any();
-
     system("cls");
 
     bold(1);
@@ -191,6 +195,8 @@ void end(int num) {
 
     if(num == 546) {
         printf_text("FINAL 546 - todos os documentos foram confiscados e voce perdeu a chance de investigar o caso. Voce perdeu o emprego, ja que, sem um mentor, voce naso consegue trabalhar. O detetive continua desaparecido. ", 1);
+    } else if(num == 873){
+        printf_text("FINAL 873: voce chega a conclusao de que seu mentor estava completamente fora de si e decide parar de se afundar na loucura deixada por ele. Voce tranca o escritorio e vai embora. O detetive continua desaparecido.", 1);
     } else if(num == 667) {
         printf_text("FINAL 667: voce se entrega a #######. Toda sanidade restante em voce se perde e vai para longe juntamente com as palavras sussurradas. Voce entra na lista de desaparecidos, mas ele te encontrou. ", 1);
 
@@ -206,6 +212,30 @@ void end(int num) {
         printf_text(date, 1);
         printf_text(text, 1);
 
+    } else if(num == 972) {
+        printf_text("FINAL 972: voce conseguiu um mandado de busca para a casa do sujeito. Nada de suspeito ou incriminador foi encontrado. Voce perdeu a credibilidade no departamento. O detetive continua desaparecido. ", 1);
+    } else if(num == 731){
+        printf_text("FINAL 731: voce foge. Por algum motivo, os sussurros que voce ouviu naquele lugar te assombram sempre que voce fecha os olhos. Voce nao consegue falar sobre aquilo com ninguem e se isola em sua casa. Os dias passam e voce nao para de pensar se fez a escolha certa ao fugir... O detetive continua desaparecido. ", 1);
+    } else if(num == 8){
+        printf_text("FINAL 008:\n\nJornal Diario\n\n22/09/92\n\nMais um na lista de desaparecidos.\n\nRaphael Santos, 25 anos, foi oficialmente declarado como desaparecido.\nO jovem, que trabalhava como investigador, foi visto por ultimo saindo de sua residencia no dia 19/09. Cameras de seguranca indicam que ele foi para leste. Seu carro foi encontrado abandonado em um terreno baldio no interior da cidade.\nNao se tem mais noticias do paradeiro do jovem.\n", 1);
+        
+        press_any();
+        system("cls");
+        
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
+
+        printf("\n\n\n\n");
+        printf("\n                      ........");
+        printf("\n                  ....        ....");
+        printf("\n               ...       __       ...");
+        printf("\n           . ..        __  __        .. .");
+        printf("\n               ...       __       ...");
+        printf("\n                  ....        ....");
+        printf("\n                      ........");
+
+        Sleep(1000);
+
+        exit(0);
     }
 
     bold(0);
@@ -217,11 +247,9 @@ void end(int num) {
     italic(0);
 }
 
-void eye2(){
-    Sleep(5000);
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-
+void eye3(){
     system("cls");
+    rand_sleep(100, 200);
 
     char date[MAX] = "20/09/92 (00:54) ";
     char text[MAX] = "\neh lindo. todos estao aqui. ajoelhados. sussurrando. mascarados.\neu achei. eu finalmente achei.\nele me guiou. un diavolo guida l'altro.\0";
@@ -229,13 +257,28 @@ void eye2(){
     printf_text(date, 1);
     printf_text(text, 1);
 
+    press_any();
     end(667);
+}
+
+void eye2(){
+    Sleep(5000);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+
+    system("cls");
+
+    char text[MAX] = "\nHoras se passaram. Sinto o olho me observando atentamente. Ele não quer que eu pare...\nEu o vejo sempre que fecho os olhos. Uma caverna? Eu ja vi isso antes...\nPRECISO IR!\0";
+
+    printf_text(text, 1);
+
+    press_any();
+    eye3();
 }
 
 void eye() {
     system("cls");
 
-    rand_sleep(1000, 2000);
+    rand_sleep(2000, 3500);
     
     PlaySound("sound/eye.wav", NULL, SND_FILENAME | SND_ASYNC);
 
@@ -546,18 +589,159 @@ void t00_() {
     }
 }
 
-void t01_() {
+void cave1(){
+    system("cls");
+    rand_sleep(200, 500);
 
+    char text[MAX] = "\nDei um passo para dentro daquela escuridao. Me arrependo no segundo seguinte, mas decido nao deixar a covardia tomar conta de mim. Ouco os sussurros ficando mais altos. Um cheiro forte me deixa enjoado; sinto meu estomago revirar. Uma luz ao longe chama minha atencao. Ela crepita, entao assumo ser uma fogueira. Chego mais perto.\nQuando meus olhos se acostumam com a luz, sinto meu corpo estremecer. Corpos ajoelhados em frente a uma parede sao a fonte daquele sussurro lento. Nao consigo identifica-los; tem algo cobrindo suas cabecas... \nPercebo que a parede esta coberta de rabiscos. Sao... olhos? Olhos riscados em vermelho cobrindo praticamente toda sua superficie.\nDou um grito de forma inconsciente. Eles nao movem um musculo; nao parecem notar a minha presenca. \0";
+    printf_text(text, 1);
+    press_any();
+
+    system("cls");
+
+    char new_text[MAX] = "\nNao sei ao certo o que fazer agora. Me sinto observado... Checo os corpos e eles permanecem na mesma posicao. Olho novamente para a parede e...\n\n...\n\nEles...\nOs olhos...\nOs olhos estao olhando em minha direcao.\n\nMeu instinto me implora para fugir. Corro em direcao a saida, mas ela nao esta mais la. Sinto que estou entrando cada vez mais fundo na caverna. Nao consigo parar de correr e me sinto cada vez mais vigiado. Os desenhos vao ficando maiores e de um vermelho mais intenso.\nUma porta. Eh tudo que consigo enxergar nesse momento. Qualquer resquicio de claridade foi engolido pela escuridao.\nNao tenho escolha. Nao tenho saida.\nEntro. ";
+    printf_text(new_text, 1);
+
+    press_any();
+
+    end(8);
+}
+
+void cave0(){
+    system("cls");
+    rand_sleep(200, 500);
+
+    char date[MAX] = "19/09/92 (15:34) ";
+    char text[MAX] = "\nConsegui identificar as coordenadas que consegui pelo telefone e cheguei a um lugar que so posso descrever como misterioso. Eh uma... caverna? \nUm arrepio percorre a minha espinha instantaneamente. Posso ouvir algo vindo de dentro. Sao sussurros...\nSinto cada parte do meu corpo implorando para sair de la.\nTenho que tomar uma decisao \0";
+
+    printf_text(date, 1);
+    printf_text(text, 1);
+
+    press_any();
+    system("cls");
+
+    char new_text[MAX] = "                                  /\n                          _ /\n                       /                  _ _ _\n                  __ /               _  /       /\n             __ /               _  /           /\n           /                  /                   /\n       _/                  /                     /\n     /                    /                         /\n_ __ __ __ ___ _______________________________________\n\0";
+
+    char opt[2][MAX] = {"ir embora ",
+                        "entrar na caverna "};
+
+    printf_text(new_text, 1);
+
+    printf("      > ");
+    printf_text(opt[0], 1);
+
+    printf("        ");
+    printf_text(opt[1], 1);
+
+    cursor(0);
+
+    int ansr = choice_point(new_text, 2, opt);
+    
+    system("cls");
+
+    if(ansr == 0) {
+        printf_text("Nao consigo continuar nesse lugar. Eu... eu sinto muito... ", 1);
+        press_any();
+        end(731);
+    } else {
+        cave1();
+    }
+}
+
+void search() {
+    system("cls");
+    rand_sleep(200, 500);
+
+    char text[MAX] = "Droga... ele desligou. MERDA! Eu estava finalmente chegando perto de conseguir alguma informacao. Talvez eu consiga um mandado de busca se eu explicar a situacao para o departamento... vou rastrear a ligacao e conseguir um endereco. \0";
+
+    printf_text(text, 1);
+
+    cursor(0);
+
+    press_any();
+
+    system("cls");
+
+    end(972);
+}
+
+void t010() {
+    system("cls");
+    rand_sleep(200, 500);
+
+    char text[MAX] = "\nExpliquei tudo o que tinha ate agora o melhor que pude. Contei sobre o arquivo que encontrei no computador do mentor e sobre como ele estava desaparecido. Torci para que ele simpatizasse com a situacao.\nDepois de alguns minutos de monologo da minha parte, o telefone fica em silencio por longos 5 segundos.\n'Senha', escuto do outro lado da linha. Por sorte, eu havia anotado a senha que encontrei descriptografando o arquivo das vitimas (sabia que gastar minha noite de sexta decifrando aquele arquivo valeria a pena).\nTorci para que aquilo fosse o que ele queria. \0";
+
+    printf_text(text, 1);
+
+    cursor(1);
+
+    char new_text[MAX] = "\nRespirei fundo e disse: ";
+    for(int i = 0; i < strlen(new_text); i++){
+        printf("%c", new_text[i]);
+    }
+
+    char ansr[MAX];
+    gets(ansr);
+    if(stricmp(ansr, "lcbrlgj\0") == 0 || stricmp(ansr, "l c b r l g j\0") == 0){
+        system("cls");
+        printf_text("\nEle nao disse uma palavra sobre a senha, apenas comecou a falar numeros. Anotei o mais rapido que pude. Mal tive tempo de agradecer antes que ele desligasse na minha cara.\nTive o primeira pensamento que qualquer detetive de filme de acao teria: coordenadas. ", 1);
+        press_any();
+        cave0();
+    } else {
+        search();
+    }
+
+    cursor(0);
+
+    press_any();
+
+    system("cls");
+
+    end(972);
+}
+
+void terror() {
+    system("cls");
+    rand_sleep(200, 500);
+
+    char date[MAX] = "19/09/92 (02:43) ";
+    char text[MAX] = "\nDepois de descriptografar o arquivo, decidi ligar para o numero de telefone. Estava suando frio, com medo do que encontraria do outro lado da linha...\n'Alo', disse a voz extremamente grave ao atender o telefone. Congelei.\n\nDecidi: \0";
+
+    char opt[2][MAX] = {"Ser sincero e explicar a situacao ",
+                        "Usar um tom ameacador para tentar conseguir informacoes \0"};
+
+    printf_text(date, 1);
+    printf_text(text, 1);
+
+    printf("      > ");
+    printf_text(opt[0], 1);
+
+    printf("        ");
+    printf("Usar um tom ameacador para tentar conseguir informacoes ");
+
+    cursor(0);
+
+    strcat(date, text);
+
+    int ansr = choice_point(date, 2, opt);
+    
+    system("cls");
+
+    if(ansr == 0) {
+        t010();
+    } else {
+        search();
+    }
 }
 
 void t0_() {
     rand_sleep(200, 500);
 
     char date[MAX] = "18/09/92 (21:34) ";
-    char text[MAX] = "\nAchei algumas coisas interessantes no escritorio do mentor. Ele definitivamente era fa de comida japonesa, baseado na quantidade de embalagens com comida apodrecendo que encontrei jogadas pelo chao. Nao foi muito dificil acessar os arquivos em seu computador (impressionante como a senha eh sempre algo relacionado com animais de estimacao).\nNa area de trabalho, dois arquivos de texto chamaram minha atencao: 'forno.txt' e 'dsjqup.txt'.\n\nDecidi comecar pelo: \0";
+    char text[MAX] = "\nAchei algumas coisas interessantes no escritorio do mentor. Ele definitivamente era fa de comida japonesa, baseado na quantidade de embalagens com comida apodrecendo que encontrei jogadas pelo chao. Nao foi muito dificil acessar os arquivos em seu computador (impressionante como a senha eh sempre algo relacionado com animais de estimacao).\nNa area de trabalho, dois arquivos de texto chamaram minha atencao: 'forno.txt' e 'vitimas.txt'.\n\nDecidi comecar pelo: \0";
 
     char opt[2][MAX] = {"forno.txt ",
-                        "dsjqup.txt  "};
+                        "vitimas.txt  "};
 
     printf_text(date, 1);
     printf_text(text, 1);
@@ -588,7 +772,8 @@ void t0_() {
 
         printf("\n");
         printf_text("Agora para o proximo arquivo... ", 1);
-        
+
+        rand_sleep(1000, 1500);
         printf("Ah? ");
         rand_sleep(1000, 1500);
         printf("Corrompido?\n");
@@ -601,16 +786,16 @@ void t0_() {
         t00_();
     } else {
         italic(1);
-        printf_text("dsjqup.txt\na -> b   b -> c   c -> d   z -> a \ncomputador = dpnqvubeps ", 1);
+        printf_text("vitimas.txt\n'Oh, Brutus...'\n\nMvob Sjdjfsj Nbsdij\nDbnjmb Dsjtujob Tjmwb\nCsvop Sbnbmip Obtdjnfoup\nSfobo Qjofeb Mfbm\nMvjt Hbcsjfm Ebnjbuuj\nHvmifsnf Npsbjt Bsbvkp\nKvmjb Dbseptp G.\n\nJojdjbm ebt 7 qsjnfjsbt wjujnbt\n(14) 943-2788 ", 1);
         italic(0);
 
-        printf_text("\n\nFmf sfbmnfouf bnbwb dsjquphsbgjb... ", 1);
+        printf_text("\n\nAcho que isso esta criptogrado... Penso que so deveria ligar para esse numero quando entender o que esta escrito. ", 1);
 
         press_any();
         system("cls");
 
         printf_text("Agora para o proximo arquivo... ", 1);
-        
+        rand_sleep(1000, 1500);
         printf("Ah? ");
         rand_sleep(1000, 1500);
         printf("Corrompido?\n");
@@ -620,7 +805,7 @@ void t0_() {
 
         press_any();
 
-        t01_();
+        terror();
     }
 }
 
@@ -635,6 +820,7 @@ void t1() {
 
     cursor(0);
 
+    press_any();
     end(546);
 }
 
@@ -774,23 +960,29 @@ void init_computer() {
 
 void start() {
 
-    PlaySound("sound/boss_run.wav", NULL, SND_FILENAME | SND_ASYNC);
-    getch();
+    printf("\n\n\n\n");
+    printf("\n                      ........");
+    printf("\n                  ....        ....");
+    printf("\n               ...       __       ...");
+    printf("\n           . ..        __  __        .. .");
+    printf("\n               ...       __       ...");
+    printf("\n                  ....        ....");
+    printf("\n                      ........");
 
+    printf("\n\n\n                olhos sempre abertos");
+
+    PlaySound("sound/boss_run.wav", NULL, SND_FILENAME | SND_SYNC);
+
+    rand_sleep(100, 200);
     init_computer();
 }
 
 int main() {
     srand(time(NULL));
 
-    cursor(0);    
-    //start();
-    //t_();
-    t001();
+    cursor(0);   
 
-    //printf_text("Lorem ipsum dolor sit amet.\nAut consequatur iste aut necessitatibus cupiditate est vero itaque ut sunt adipisci et adipisci veritatis et quibusdam incidunt. Sed iste atque sed perspiciatis voluptatem et sint autem quo molestias assumenda? Ab dolores animi est natus officiis cum quia aliquam aut expedita omnis est repellat magni cum fugiat explicabo. Aut molestias illum et provident omnis sed similique nemo aut facilis voluptatibus vel adipisci dolor hic nostrum labore et eligendi ipsum? Qui nihil mollitia est beatae totam sit aliquam provident.");
-
-    getch();
+    start();
 
     return 0;
 }
