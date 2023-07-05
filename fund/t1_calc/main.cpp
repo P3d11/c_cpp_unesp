@@ -1,3 +1,9 @@
+/* 
+    feito por: Pedro Ricieri Marchi
+    compilador: MinGW - compilado em um vscode 
+    sistema operacional: Windows 11
+*/
+
 #include <iostream>
 #include <string>
 #include <conio.h>
@@ -7,6 +13,7 @@
 
 #define MAX 4444
 #define ENTER 13
+#define ESC 27
 #define UP 72
 #define DOWN 80
 
@@ -30,14 +37,6 @@ void bold(int status) {
 void italic(int status) {
     static const char *seq[] = {"\x1b[0m", "\x1b[3m"};
     printf("%s", seq[!!status]);
-}
-
-void press_any(){
-    italic(1);
-    printf("\n\naperte qualquer tecla...");
-    getch();
-    system("cls");    
-    italic(0);
 }
 
 void printf_text(string text, int anim) { 
@@ -100,6 +99,37 @@ void printf_text(string text, int anim) {
             }
         }
     }
+}
+
+void end(){
+    system("cls");
+    
+    italic(0);
+
+    if(rand()%5 != 4){
+        printf_text("obrigada por usar o programa! <3\n\nfeito por: Pedro Ricieri Marchi - 231024801\n", 1);
+    } else {
+        printf_text("obrigada por usar o programa! <3\n\nfeito por: Luna Ricieri Marchi - 231024801\n", 1);
+        rand_sleep(1000, 1500);
+        system("cls");
+        printf_text("obrigada por usar o programa! <3\n\nfeito por: Pedro Ricieri Marchi - 231024801\n(emote suspeito)\n", 0);
+    }
+
+    italic(1);
+    printf_text("\n____________________________________$$$$\n__________________________________$$____$\n_________________________________$_______$\n___$$$$_________________________$_________$\n__$____$$______________________$____$_____$\n_$_______$$___________________$____$$$____$\n_$_________$$_____$$$$_$$$___$____$$$$$___$\n$____________$_$$$__$$$__$$_$____$$$$$$___$\n$____$$_______$_$$__$$$__$$$____$$$$$$$___$\n$___$$$$_______$$$$_$$$___$$_____$$$$$$___$\n$___$$$$$$_____$$$$_$$$$__$$$______$$$$$__$\n$___$$$$$$$____$$$$_$$$$__$$$________$$$__$\n$___$$$$$______$$$$_$$$$__$$$$____________$\n$___$$$$_______$$$$_$$$$__$$$$____________$\n$___$$$________$$$$_$$$$__$$$$____________$\n$___$$_________$$$$__$$$__$$$$____________$\n$______________$$$___$$$___$$$____________$\n$_______________$_____$_____$_____________$\n_$_________________________________________$\n$________________________________$$$$_______$\n$_______________________________$__$$$______$\n$__________$$$$________________$$__$$$$_____$\n$_________$$$__$_______________$$$$$$$$_____$\n$________$$$$__$_______________$$$$$$$$_____$\n$________$$$$$$$$______________$$$$$$$$_____$\n$________$$$$$$$$_______________$$$$$$______$\n$________$$$$$$$$_______$___$____$$$$_______$\n$_________$$$$$$_____$__$$_$________________$\n$__________$$$$_______$$__$________________$\n_$_____________________$__$_______________$\n__$_____________________$$_______________$\n___$______________________________$$$___$\n____$$___________________________$___$_$\n______$$$_______________________$_____$\n_________$$$$_____________$$$$$$______$\n___$$________$$$$$$$$$$$$$____________$\n__$__$________$___$_________________$$\n__$___$_______$____$_____________$$$\n__$___$________$____$___________$$\n__$$$$$$_______$____$__________$__$\n___$___$$_______$___$_________$____$\n___$$$$$$$___$$$_$$$_________$_____$\n____$___$$$$$__$_____$_______$_____$\n_____$__$______$_____$_______$_____$\n______$$$$$$$$$$_____$_______$____$\n________________$$$$$_________$$$$\n", 0);
+    italic(0);
+
+    exit(0);
+}
+
+void press_any(){
+    italic(1);
+    cout << "\n\n\naperte qualquer <ESC> para sair ou qualquer tecla para voltar...";
+    if(getch() == ESC){
+        end();
+    }
+    system("cls");    
+    italic(0);
 }
 
 void printf_num(string num, string base, int anim) { 
@@ -207,7 +237,7 @@ string choice(string num, string base){
     if(how_many == 0){
         printf_text("numero invalido", 1);
         press_any();
-        return "-1";
+        return "0";
     }
 
     while(1) {
@@ -438,43 +468,56 @@ int main() {
     while(1){
         system("cls");
         
-        italic(1);
-        printf_header(0, 1);
-        printf_text("insira um numero: ", 1);
-        italic(0);
-
         string num;
-        cin >> num;
-
-        system("cls");
-
-        rand_sleep(200, 300);
-
-        //load
-
         string base = "0";
-        base = choice(num, base);
 
-        system("cls");
+        while(base == "0"){
+            italic(1);
+            printf_header(0, 1);
+            printf_text("insira um numero: ", 1);
+            italic(0);
 
-        //load
+            cin >> num;
+
+            system("cls");
+            rand_sleep(200, 300);
+
+            base = choice(num, base);
+
+            system("cls");
+            rand_sleep(200, 300);
+        }
         
         string to_base = choice(num, base);
 
-        cout << to_base;
-
         system("cls");
-
-        //load
+        rand_sleep(200, 300);
 
         string num_aux = x_to_bin(num, base);
-
         string num_final = bin_to_x(num_aux, to_base);
 
-        
+        printf_header(0, 1);
+
+        italic(1);
+        printf_num(num, base, 1);
+        italic(0);
+
+        rand_sleep(500, 800);
+
+        cout << " ";
+        for(int i = 0; i < 5; i++){
+            cout << ">";
+            rand_sleep(300, 500);
+        }
+        cout << " ";
+
+        rand_sleep(500, 800);
+
+        italic(1);
+        printf_num(num_final, to_base, 1);
+        italic(0);
 
         press_any();
-
     }
     
     return 0;
